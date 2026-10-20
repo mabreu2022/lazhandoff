@@ -245,7 +245,7 @@ begin
   Canvas.Brush.Style := bsClear;
 
   TextR := Rect(ScaleMetric(14), 0, Width - ScaleMetric(90), FScaledHeaderHeight);
-  Vcl.Graphics.DrawText(Canvas.Handle, PChar(FHeaderTitle), Length(FHeaderTitle),
+  Winapi.Windows.DrawText(Canvas.Handle, PChar(FHeaderTitle), Length(FHeaderTitle),
     TextR, DT_LEFT or DT_VCENTER or DT_SINGLELINE);
 
   { 4. Badge Informativo de Escala e DPI }

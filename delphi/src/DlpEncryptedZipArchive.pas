@@ -16,7 +16,8 @@ interface
 uses
   System.SysUtils,
   System.Classes,
-  System.Hash;
+  System.Hash,
+  System.ZLib;
 
 type
   { Evento de progresso de operação de arquivo }
@@ -110,11 +111,11 @@ var
 begin
   SetLength(Buffer, 8192);
   AStream.Position := 0;
-  Result := 0;
+  Result := crc32(0, nil, 0);
   repeat
     BytesRead := AStream.Read(Buffer[0], Length(Buffer));
     if BytesRead > 0 then
-      Result := THashCRC32.Update(Result, @Buffer[0], BytesRead);
+      Result := crc32(Result, @Buffer[0], BytesRead);
   until BytesRead = 0;
   AStream.Position := 0;
 end;

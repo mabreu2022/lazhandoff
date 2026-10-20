@@ -63,7 +63,7 @@ $LazCover = @"
       <span class="pillar-chip">IDEIntf &amp; Custom Editors</span>
       <span class="pillar-chip">SQLDB Architecture</span>
       <span class="pillar-chip">High-DPI &amp; Themes</span>
-      <span class="pillar-chip">25 M&oacute;dulos Pr&aacute;ticos</span>
+      <span class="pillar-chip">50 M&oacute;dulos Pr&aacute;ticos</span>
     </div>
   </div>
   <div class="cover-footer">
@@ -127,7 +127,7 @@ $DlpCover = @"
       <span class="pillar-chip">FireDAC &amp; Data-Aware</span>
       <span class="pillar-chip">Parallel Programming Library (PPL)</span>
       <span class="pillar-chip">Per-Monitor v2 &amp; High-DPI</span>
-      <span class="pillar-chip">25 M&oacute;dulos Pr&aacute;ticos</span>
+      <span class="pillar-chip">50 M&oacute;dulos Pr&aacute;ticos</span>
     </div>
   </div>
   <div class="cover-footer">

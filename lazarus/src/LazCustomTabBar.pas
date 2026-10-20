@@ -18,6 +18,7 @@ interface
 uses
   Classes,
   SysUtils,
+  Types,
   Controls,
   Graphics,
   Forms,

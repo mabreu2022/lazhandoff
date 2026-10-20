@@ -21,6 +21,7 @@ uses
   Graphics,
   Forms,
   DB,
+  DBCtrls,
   LCLType,
   LCLIntf;
 

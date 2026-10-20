@@ -282,8 +282,8 @@ begin
 
   // Rótulo numérico inferior
   Canvas.Font.Size := 8;
-  Canvas.Font.Bold := True;
-  Canvas.Font.Color := #$1e293b;
+  Canvas.Font.Style := [fsBold];
+  Canvas.Font.Color := $001E293B;
   LabelStr := Format('%.1f %s (%.0f%%)', [FCurrentLevel, FUnitOfMeasure, GetLevelPercentage]);
   Canvas.TextOut(TankLeft, Height - 22, LabelStr);
 end;

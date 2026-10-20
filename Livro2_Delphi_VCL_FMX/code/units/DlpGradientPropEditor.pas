@@ -30,7 +30,7 @@ type
   {============================================================================
     Editor 1: Dropdown de Presets no Object Inspector (paValueList)
   ============================================================================}
-  TDlpGradientPresetPropertyEditor = class(TStringPropertyEditor)
+  TDlpGradientPresetPropertyEditor = class(TStringProperty)
   public
     function GetAttributes: TPropertyAttributes; override;
     procedure GetValues(Proc: TGetStrProc); override;
@@ -39,7 +39,14 @@ type
   {============================================================================
     Editor 2: Diálogo Modal de Customização de Gradiente (paDialog)
   ============================================================================}
-  TDlpGradientModalPropertyEditor = class(TStringPropertyEditor)
+  TDlpGradientModalPropertyEditor = class(TStringProperty)
+  private
+    FSelectedStart: TColor;
+    FSelectedEnd: TColor;
+    FPreviewPanel: TDlpGradientHeader;
+    FColorDlg: TColorDialog;
+    procedure HandleStartColorClick(Sender: TObject);
+    procedure HandleEndColorClick(Sender: TObject);
   public
     function GetAttributes: TPropertyAttributes; override;
     procedure Edit; override;
@@ -76,25 +83,44 @@ begin
   Result := [paDialog];
 end;
 
+procedure TDlpGradientModalPropertyEditor.HandleStartColorClick(Sender: TObject);
+begin
+  FColorDlg.Color := FSelectedStart;
+  if FColorDlg.Execute then
+  begin
+    FSelectedStart := FColorDlg.Color;
+    if Assigned(FPreviewPanel) then
+      FPreviewPanel.StartColor := FSelectedStart;
+  end;
+end;
+
+procedure TDlpGradientModalPropertyEditor.HandleEndColorClick(Sender: TObject);
+begin
+  FColorDlg.Color := FSelectedEnd;
+  if FColorDlg.Execute then
+  begin
+    FSelectedEnd := FColorDlg.Color;
+    if Assigned(FPreviewPanel) then
+      FPreviewPanel.EndColor := FSelectedEnd;
+  end;
+end;
+
 procedure TDlpGradientModalPropertyEditor.Edit;
 var
   Dlg: TForm;
-  PreviewPanel: TDlpGradientHeader;
   BtnOk, BtnCancel, BtnStartColor, BtnEndColor: TButton;
-  ColorDlg: TColorDialog;
   HeaderComp: TDlpGradientHeader;
-  SelectedStart, SelectedEnd: TColor;
 begin
   HeaderComp := TDlpGradientHeader(GetComponent(0));
   if not Assigned(HeaderComp) then
     Exit;
 
-  SelectedStart := HeaderComp.StartColor;
-  SelectedEnd := HeaderComp.EndColor;
+  FSelectedStart := HeaderComp.StartColor;
+  FSelectedEnd := HeaderComp.EndColor;
 
   Dlg := TForm.Create(nil);
-  ColorDlg := TColorDialog.Create(Dlg);
   try
+    FColorDlg := TColorDialog.Create(Dlg);
     Dlg.Caption := 'Editor Avançado de Gradiente - Delphi 12 Athens';
     Dlg.Width := 520;
     Dlg.Height := 280;
@@ -105,16 +131,16 @@ begin
     Dlg.Font.Color := clWhite;
 
     { Preview visual em tempo real dentro do diálogo modal }
-    PreviewPanel := TDlpGradientHeader.Create(Dlg);
-    PreviewPanel.Parent := Dlg;
-    PreviewPanel.Left := 20;
-    PreviewPanel.Top := 20;
-    PreviewPanel.Width := 460;
-    PreviewPanel.Height := 80;
-    PreviewPanel.StartColor := SelectedStart;
-    PreviewPanel.EndColor := SelectedEnd;
-    PreviewPanel.TitleText := 'Preview do Gradiente';
-    PreviewPanel.SubtitleText := 'Edição interativa em Design-Time';
+    FPreviewPanel := TDlpGradientHeader.Create(Dlg);
+    FPreviewPanel.Parent := Dlg;
+    FPreviewPanel.Left := 20;
+    FPreviewPanel.Top := 20;
+    FPreviewPanel.Width := 460;
+    FPreviewPanel.Height := 80;
+    FPreviewPanel.StartColor := FSelectedStart;
+    FPreviewPanel.EndColor := FSelectedEnd;
+    FPreviewPanel.TitleText := 'Preview do Gradiente';
+    FPreviewPanel.SubtitleText := 'Edição interativa em Design-Time';
 
     { Botão de Seleção da Cor Inicial }
     BtnStartColor := TButton.Create(Dlg);
@@ -124,16 +150,7 @@ begin
     BtnStartColor.Width := 140;
     BtnStartColor.Height := 32;
     BtnStartColor.Caption := 'Cor Inicial...';
-    BtnStartColor.OnClick :=
-      procedure(Sender: TObject)
-      begin
-        ColorDlg.Color := SelectedStart;
-        if ColorDlg.Execute then
-        begin
-          SelectedStart := ColorDlg.Color;
-          PreviewPanel.StartColor := SelectedStart;
-        end;
-      end;
+    BtnStartColor.OnClick := HandleStartColorClick;
 
     { Botão de Seleção da Cor Final }
     BtnEndColor := TButton.Create(Dlg);
@@ -143,16 +160,7 @@ begin
     BtnEndColor.Width := 140;
     BtnEndColor.Height := 32;
     BtnEndColor.Caption := 'Cor Final...';
-    BtnEndColor.OnClick :=
-      procedure(Sender: TObject)
-      begin
-        ColorDlg.Color := SelectedEnd;
-        if ColorDlg.Execute then
-        begin
-          SelectedEnd := ColorDlg.Color;
-          PreviewPanel.EndColor := SelectedEnd;
-        end;
-      end;
+    BtnEndColor.OnClick := HandleEndColorClick;
 
     { Botões de Ação }
     BtnOk := TButton.Create(Dlg);
@@ -175,12 +183,14 @@ begin
 
     if Dlg.ShowModal = mrOk then
     begin
-      HeaderComp.StartColor := SelectedStart;
-      HeaderComp.EndColor := SelectedEnd;
-      SetStrValue(Format('#%0.6X -> #%0.6X', [SelectedStart, SelectedEnd]));
+      HeaderComp.StartColor := FSelectedStart;
+      HeaderComp.EndColor := FSelectedEnd;
+      SetStrValue(Format('#%0.6X -> #%0.6X', [FSelectedStart, FSelectedEnd]));
       Designer.Modified;
     end;
   finally
+    FPreviewPanel := nil;
+    FColorDlg := nil;
     Dlg.Free;
   end;
 end;

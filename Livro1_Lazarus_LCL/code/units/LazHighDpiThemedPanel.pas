@@ -54,7 +54,7 @@ type
     procedure Resize; override;
     { Ponto de entrada oficial da LCL para escalonamento automático de DPI }
     procedure DoAutoAdjustLayout(const AMode: TLayoutAdjustmentPolicy;
-      const AXProportion, AYProportion: Double): override;
+      const AXProportion, AYProportion: Double); override;
   public
     constructor Create(AOwner: TComponent); override;
   published
@@ -203,7 +203,7 @@ begin
       begin
         { Consulta ThemeServices da LCL }
         if ThemeServices.ThemesEnabled then
-          IsDark := (ColorToRGB(ThemeServices.GetSystemColor(clWindow)) < $00808080)
+          IsDark := (ColorToRGB(clWindow) < $00808080)
         else
           IsDark := True;
       end;

@@ -124,6 +124,15 @@ begin
   Result := TEncoding.UTF8.GetString(Bytes);
 end;
 
+function Sha256Bytes(const AData: TBytes): TBytes;
+var
+  H: THashSHA2;
+begin
+  H := THashSHA2.Create(THashSHA2.TSHA2Version.SHA256);
+  H.Update(AData);
+  Result := H.HashAsBytes;
+end;
+
 function TDlpJwtSecurityManager.ComputeHmacSha256(const Key, Message: string): string;
 var
   KeyBytes, MsgBytes, HashBytes: TBytes;
@@ -141,7 +150,7 @@ begin
 
   if KeyLen > 64 then
   begin
-    HashBytes := THashSHA2.GetHashBytes(KeyBytes);
+    HashBytes := Sha256Bytes(KeyBytes);
     Move(HashBytes[0], K0[0], 32);
   end
   else
@@ -158,12 +167,12 @@ begin
   SetLength(InnerMsg, 64 + Length(MsgBytes));
   Move(Ipad[0], InnerMsg[0], 64);
   Move(MsgBytes[0], InnerMsg[64], Length(MsgBytes));
-  InnerHash := THashSHA2.GetHashBytes(InnerMsg);
+  InnerHash := Sha256Bytes(InnerMsg);
 
   SetLength(OuterMsg, 64 + 32);
   Move(Opad[0], OuterMsg[0], 64);
   Move(InnerHash[0], OuterMsg[64], 32);
-  OuterHash := THashSHA2.GetHashBytes(OuterMsg);
+  OuterHash := Sha256Bytes(OuterMsg);
 
   Result := Base64UrlEncode(OuterHash);
 end;

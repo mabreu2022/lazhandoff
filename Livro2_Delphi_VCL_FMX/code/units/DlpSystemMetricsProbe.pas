@@ -14,6 +14,7 @@ unit DlpSystemMetricsProbe;
 interface
 
 uses
+  Winapi.Windows,
   System.SysUtils,
   System.Classes,
   Vcl.ExtCtrls;

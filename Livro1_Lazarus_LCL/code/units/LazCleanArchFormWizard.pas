@@ -32,7 +32,7 @@ type
     constructor Create; override;
     function GetLocalizedName: string; override;
     function GetLocalizedDescription: string; override;
-    function CreateSource(const NewFilename, ResourceName: string): string; override;
+    function CreateSource(const aFilename, aSourceName, aResourceName: string): string; override;
     function CreateLFM(const NewFilename, ResourceName: string): string; virtual;
   end;
 
@@ -67,18 +67,21 @@ begin
             'com desacoplamento estrito entre a interface visual e a lógica de apresentação.';
 end;
 
-function TLazCleanArchFormDescriptor.CreateSource(const NewFilename, ResourceName: string): string;
+function TLazCleanArchFormDescriptor.CreateSource(const aFilename, aSourceName, aResourceName: string): string;
 var
-  UnitName: string;
+  TargetUnitName: string;
   SB: TStringBuilder;
 begin
-  UnitName := ExtractFileNameOnly(NewFilename);
-  if UnitName = '' then
-    UnitName := 'UnitCleanArch';
+  if aSourceName <> '' then
+    TargetUnitName := aSourceName
+  else
+    TargetUnitName := ChangeFileExt(ExtractFileName(aFilename), '');
+  if TargetUnitName = '' then
+    TargetUnitName := 'UnitCleanArch';
 
   SB := TStringBuilder.Create;
   try
-    SB.AppendLine(Format('unit %s;', [UnitName]));
+    SB.AppendLine(Format('unit %s;', [TargetUnitName]));
     SB.AppendLine('');
     SB.AppendLine('{$mode objfpc}{$H+}');
     SB.AppendLine('');
@@ -105,7 +108,7 @@ begin
     SB.AppendLine('  end;');
     SB.AppendLine('');
     SB.AppendLine(Format('  { 3. Formulário que implementa a View }', []));
-    SB.AppendLine(Format('  T%s = class(TForm, ICustomerView)', [ResourceName]));
+    SB.AppendLine(Format('  T%s = class(TForm, ICustomerView)', [aResourceName]));
     SB.AppendLine('  private');
     SB.AppendLine('    FPresenter: TCustomerPresenter;');
     SB.AppendLine('  public');
@@ -117,7 +120,7 @@ begin
     SB.AppendLine('  end;');
     SB.AppendLine('');
     SB.AppendLine(Format('var', []));
-    SB.AppendLine(Format('  %s: T%s;', [ResourceName, ResourceName]));
+    SB.AppendLine(Format('  %s: T%s;', [aResourceName, aResourceName]));
     SB.AppendLine('');
     SB.AppendLine('implementation');
     SB.AppendLine('');
@@ -141,26 +144,26 @@ begin
     SB.AppendLine('  end;');
     SB.AppendLine('end;');
     SB.AppendLine('');
-    SB.AppendLine(Format('{ T%s }', [ResourceName]));
+    SB.AppendLine(Format('{ T%s }', [aResourceName]));
     SB.AppendLine('');
-    SB.AppendLine(Format('constructor T%s.Create(AOwner: TComponent);', [ResourceName]));
+    SB.AppendLine(Format('constructor T%s.Create(AOwner: TComponent);', [aResourceName]));
     SB.AppendLine('begin');
     SB.AppendLine('  inherited Create(AOwner);');
     SB.AppendLine('  FPresenter := TCustomerPresenter.Create(Self);');
     SB.AppendLine('end;');
     SB.AppendLine('');
-    SB.AppendLine(Format('destructor T%s.Destroy;', [ResourceName]));
+    SB.AppendLine(Format('destructor T%s.Destroy;', [aResourceName]));
     SB.AppendLine('begin');
     SB.AppendLine('  FreeAndNil(FPresenter);');
     SB.AppendLine('  inherited Destroy;');
     SB.AppendLine('end;');
     SB.AppendLine('');
-    SB.AppendLine(Format('procedure T%s.DisplayNotification(const AMessage: string);', [ResourceName]));
+    SB.AppendLine(Format('procedure T%s.DisplayNotification(const AMessage: string);', [aResourceName]));
     SB.AppendLine('begin');
     SB.AppendLine('  ShowMessage(AMessage);');
     SB.AppendLine('end;');
     SB.AppendLine('');
-    SB.AppendLine(Format('procedure T%s.SetActionState(AEnabled: Boolean);', [ResourceName]));
+    SB.AppendLine(Format('procedure T%s.SetActionState(AEnabled: Boolean);', [aResourceName]));
     SB.AppendLine('begin');
     SB.AppendLine('  Enabled := AEnabled;');
     SB.AppendLine('end;');

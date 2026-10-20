@@ -35,7 +35,6 @@ type
   TOnDlpScaleWeightEvent = procedure(Sender: TObject; WeightKG: Double;
     const RawData: string) of object;
 
-  class forward;
   TDlpSerialDeviceConnector = class;
 
   /// <summary>

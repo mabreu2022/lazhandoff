@@ -363,7 +363,7 @@ begin
   begin
     PageBuf := TDlpPdfPageBuffer(FPages[i]);
     RegisterObj(PageObjStart + FPages.Count + i);
-    WriteStr(Format('<< /Length %d >>'#10'stream'#10', [PageBuf.ContentStream.Size], FS));
+    WriteStr(Format('<< /Length %d >>'#10'stream'#10, [PageBuf.ContentStream.Size], FS));
     AStream.CopyFrom(PageBuf.ContentStream, 0);
     WriteStr(#10'endstream'#10'endobj'#10);
   end;

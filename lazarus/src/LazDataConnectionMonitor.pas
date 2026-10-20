@@ -47,7 +47,7 @@ type
     FLogFileName: string;
     FActive: Boolean;
     FTransactionStartTime: TDateTime;
-    FOriginalLogEvent: TDBLogEvent;
+    FOriginalLogEvent: TDBLogNotifyEvent;
 
     FOnSlowQueryDetected: TSlowQueryEvent;
     FOnZombieTransactionDetected: TZombieTransactionEvent;

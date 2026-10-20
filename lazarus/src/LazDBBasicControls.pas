@@ -23,6 +23,7 @@ uses
   StdCtrls,
   Forms,
   DB,
+  DBCtrls,
   LCLType,
   LCLIntf;
 
@@ -60,7 +61,7 @@ type
     property BorderRadius: Integer read FBorderRadius write FBorderRadius default 6;
     property ActiveColor: TColor read FActiveColor write FActiveColor default $0000C853;
     property InactiveColor: TColor read FInactiveColor write FInactiveColor default $00555555;
-    property WarningColor: TColor read FWarningColor write SetWarningColor default $0000A5FF;
+    property WarningColor: TColor read FWarningColor write FWarningColor default $0000A5FF;
     property DefaultColor: TColor read FDefaultColor write FDefaultColor default $002A2A2A;
 
     property Align;
@@ -350,7 +351,7 @@ var
 begin
   if Assigned(FDataLink.Field) then
   begin
-    CleanText := Text.Replace(FCurrencySymbol, '').Replace(' ', '').Trim;
+    CleanText := Trim(StringReplace(StringReplace(Text, FCurrencySymbol, '', [rfReplaceAll]), ' ', '', [rfReplaceAll]));
     if CleanText = '' then
       FDataLink.Field.Clear
     else

@@ -1,6 +1,6 @@
 package DlpComponents_DT;
 
-{$R *.res}
+// {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by the compiler}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -12,7 +12,7 @@ package DlpComponents_DT;
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION LEVEL3}
+{$OPTIMIZATION ON}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO ON}
@@ -36,6 +36,9 @@ requires
   DlpComponents_RT;
 
 contains
+  DlpCleanArchProjectWizard in '..\units\DlpCleanArchProjectWizard.pas',
+  DlpDashboardCardEditor in '..\units\DlpDashboardCardEditor.pas',
+  DlpGradientPropEditor in '..\units\DlpGradientPropEditor.pas',
   DlpPackageRegister in '..\units\DlpPackageRegister.pas';
 
 end.

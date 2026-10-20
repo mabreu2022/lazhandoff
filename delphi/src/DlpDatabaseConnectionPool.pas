@@ -14,6 +14,7 @@ unit DlpDatabaseConnectionPool;
 interface
 
 uses
+  Winapi.Windows,
   System.SysUtils,
   System.Classes,
   System.SyncObjs;

@@ -14,6 +14,7 @@ unit DlpCryptoVaultStorage;
 interface
 
 uses
+  Winapi.Windows,
   System.SysUtils,
   System.Classes,
   System.Hash;
@@ -89,7 +90,7 @@ var
 begin
   Seed := Format('PID:%d;Tick:%d;Time:%s;Rand:%d',
     [GetCurrentProcessId, GetTickCount, FormatDateTime('yyyymmddhhnnsszzz', Now), Random(MaxInt)]);
-  FMasterRuntimeKey := THashSHA2.GetHashBytes(TEncoding.UTF8.GetBytes(Seed));
+  FMasterRuntimeKey := THashSHA2.GetHashBytes(Seed, THashSHA2.TSHA2Version.SHA256);
 end;
 
 procedure TDlpCryptoVaultStorage.SecureClearBuffer(var Buffer; Size: Integer);
@@ -203,7 +204,7 @@ var
   PlainVal: string;
   Sig: AnsiString;
 begin
-  PassHash := THashSHA2.GetHashBytes(TEncoding.UTF8.GetBytes(AMasterPassphrase + 'VaultSalt2026'));
+  PassHash := THashSHA2.GetHashBytes(AMasterPassphrase + 'VaultSalt2026', THashSHA2.TSHA2Version.SHA256);
   FS := TFileStream.Create(AFileName, fmCreate);
   try
     Sig := 'VAULT10';
@@ -249,7 +250,7 @@ begin
   if not FileExists(AFileName) then
     raise Exception.Create('Arquivo do cofre nao localizado: ' + AFileName);
 
-  PassHash := THashSHA2.GetHashBytes(TEncoding.UTF8.GetBytes(AMasterPassphrase + 'VaultSalt2026'));
+  PassHash := THashSHA2.GetHashBytes(AMasterPassphrase + 'VaultSalt2026', THashSHA2.TSHA2Version.SHA256);
   ClearAll;
 
   FS := TFileStream.Create(AFileName, fmOpenRead or fmShareDenyWrite);

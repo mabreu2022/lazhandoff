@@ -149,7 +149,7 @@ function TDlpFiscalXmlValidator.ComputeSha1Base64(const Data: string): string;
 var
   HashBytes: TBytes;
 begin
-  HashBytes := THashSHA1.GetHashBytes(TEncoding.UTF8.GetBytes(Data));
+  HashBytes := THashSHA1.GetHashBytes(Data);
   Result := TNetEncoding.Base64.EncodeBytesToString(HashBytes);
 end;
 

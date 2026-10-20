@@ -246,7 +246,7 @@
         <PackageName Value="FCL"/>
       </Item2>
       <Item3>
-        <PackageName Value="SQLDB"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item3>
     </RequiredPkgs>
     <UsageOptions>

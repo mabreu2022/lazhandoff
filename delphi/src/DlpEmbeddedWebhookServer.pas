@@ -231,7 +231,7 @@ begin
     ServerAddr.sin_port := htons(FPort);
     ServerAddr.sin_addr.S_addr := INADDR_ANY;
 
-    if bind(FServerSocket, ServerAddr, SizeOf(ServerAddr)) <> 0 then
+    if bind(FServerSocket, sockaddr(ServerAddr), SizeOf(ServerAddr)) <> 0 then
     begin
       closesocket(FServerSocket);
       FServerSocket := INVALID_SOCKET;

@@ -45,6 +45,7 @@ type
 
     procedure SetState(const Value: TDlpWebSocketState);
     procedure FlushOfflineQueue;
+    function GetPendingMessagesCount: Integer;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -60,7 +61,7 @@ type
     procedure SimulateReconnect;
 
     property State: TDlpWebSocketState read FState;
-    property PendingMessagesCount: Integer read FOfflineQueue.Count;
+    property PendingMessagesCount: Integer read GetPendingMessagesCount;
   published
     property Url: string read FUrl write FUrl;
     property AutoReconnect: Boolean read FAutoReconnect write FAutoReconnect default True;
@@ -96,6 +97,14 @@ begin
   Disconnect;
   FOfflineQueue.Free;
   inherited Destroy;
+end;
+
+function TDlpWebSocketLiveClient.GetPendingMessagesCount: Integer;
+begin
+  if Assigned(FOfflineQueue) then
+    Result := FOfflineQueue.Count
+  else
+    Result := 0;
 end;
 
 procedure TDlpWebSocketLiveClient.SetState(const Value: TDlpWebSocketState);

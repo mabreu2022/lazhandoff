@@ -242,7 +242,7 @@ begin
   Canvas.Font.Size := 12;
 
   TextR := Rect(16, 10, Width - 16, 32);
-  Vcl.Graphics.DrawText(Canvas.Handle, PChar(FTitleText), Length(FTitleText),
+  Winapi.Windows.DrawText(Canvas.Handle, PChar(FTitleText), Length(FTitleText),
     TextR, DT_LEFT or DT_VCENTER or DT_SINGLELINE);
 
   { Renderiza Subtítulo }
@@ -253,7 +253,7 @@ begin
     Canvas.Font.Color := $00D0D0D0;
 
     SubTextR := Rect(16, 34, Width - 16, Height - 6);
-    Vcl.Graphics.DrawText(Canvas.Handle, PChar(FSubtitleText), Length(FSubtitleText),
+    Winapi.Windows.DrawText(Canvas.Handle, PChar(FSubtitleText), Length(FSubtitleText),
       SubTextR, DT_LEFT or DT_TOP or DT_SINGLELINE);
   end;
 end;

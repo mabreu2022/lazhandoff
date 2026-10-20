@@ -16,7 +16,8 @@ uses
   System.SysUtils,
   System.Classes,
   Data.DB,
-  Vcl.Controls;
+  Vcl.Controls,
+  Vcl.DBCtrls;
 
 type
   TDlpCustomDBConnector = class;

@@ -101,7 +101,7 @@ type
     procedure Resize; override;
     procedure MouseDown(Button: TMouseButton; Shift: TShiftState; X, Y: Integer); override;
     procedure MouseMove(Shift: TShiftState; X, Y: Integer); override;
-    procedure MouseLeave; override;
+    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
     constructor Create(AOwner: TComponent); override;
@@ -488,9 +488,9 @@ begin
     Invalidate;
 end;
 
-procedure TDlpCustomTabBar.MouseLeave;
+procedure TDlpCustomTabBar.CMMouseLeave(var Message: TMessage);
 begin
-  inherited MouseLeave;
+  inherited;
   if FCloseHoverIndex <> -1 then
   begin
     FCloseHoverIndex := -1;
@@ -617,7 +617,7 @@ begin
 
       Canvas.Font.Size := 8;
       Canvas.Font.Style := [fsBold];
-      Vcl.Graphics.DrawText(Canvas.Handle, '×', 1, CloseR, DT_CENTER or DT_VCENTER or DT_SINGLELINE);
+      Winapi.Windows.DrawText(Canvas.Handle, '×', 1, CloseR, DT_CENTER or DT_VCENTER or DT_SINGLELINE);
     end;
   end;
 end;

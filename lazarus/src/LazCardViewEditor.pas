@@ -17,6 +17,7 @@ interface
 uses
   Classes,
   SysUtils,
+  Controls,
   Dialogs,
   ComponentEditors,
   LazCardView;

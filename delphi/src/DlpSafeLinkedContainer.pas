@@ -77,6 +77,8 @@ type
     { Métodos de diagnóstico e estado }
     function HasActiveLink: Boolean;
     function GetDiagnosticSnapshot: string;
+    function LinkedCount: Integer;
+    procedure LinkComponent(AComponent: TComponent);
   published
     { Vínculos seguros com componentes do formulário }
     property LinkedControl: TControl read FLinkedControl write SetLinkedControl;
@@ -149,6 +151,14 @@ begin
   RegisterComponents('Engenharia Delphi 12', [TDlpSafeLinkedContainer]);
 end;
 
+function BoolToStrCustom(AValue: Boolean; const ATrueStr, AFalseStr: string): string;
+begin
+  if AValue then
+    Result := ATrueStr
+  else
+    Result := AFalseStr;
+end;
+
 { TDlpSafeLinkedContainer }
 
 constructor TDlpSafeLinkedContainer.Create(AOwner: TComponent);
@@ -177,8 +187,8 @@ begin
   Font.Color := $00F0F0F0;
 
   DispatchLifecycleEvent('Create', Format('Owner: %s | csDesigning: %s',
-    [BoolToStr(Assigned(AOwner), 'Presente', 'nil'),
-     BoolToStr(csDesigning in ComponentState, 'Sim', 'Não')]));
+    [BoolToStrCustom(Assigned(AOwner), 'Presente', 'nil'),
+     BoolToStrCustom(csDesigning in ComponentState, 'Sim', 'Não')]));
 end;
 
 destructor TDlpSafeLinkedContainer.Destroy;
@@ -221,8 +231,8 @@ begin
 
   { Todo o arquivo .dfm foi parseado e todos os fixups resolvidos }
   DispatchLifecycleEvent('Loaded', Format('DFM concluído. LinkedControl: %s | Secondary: %s',
-    [BoolToStr(Assigned(FLinkedControl), 'Atribuído', 'Vazio'),
-     BoolToStr(Assigned(FSecondaryComponent), 'Atribuído', 'Vazio')]));
+    [BoolToStrCustom(Assigned(FLinkedControl), 'Atribuído', 'Vazio'),
+     BoolToStrCustom(Assigned(FSecondaryComponent), 'Atribuído', 'Vazio')]));
 
   Invalidate;
 end;
@@ -245,8 +255,10 @@ begin
     if Assigned(FLinkedControl) then
       FLinkedControl.FreeNotification(Self);
 
-    DispatchLifecycleEvent('SetLinkedControl', Format('Novo controle: %s',
-      [BoolToStr(Assigned(FLinkedControl), FLinkedControl.Name, 'nil')]));
+    if Assigned(FLinkedControl) then
+      DispatchLifecycleEvent('SetLinkedControl', Format('Novo controle: %s', [FLinkedControl.Name]))
+    else
+      DispatchLifecycleEvent('SetLinkedControl', 'Novo controle: nil');
 
     Invalidate;
   end;
@@ -267,8 +279,10 @@ begin
     if Assigned(FSecondaryComponent) then
       FSecondaryComponent.FreeNotification(Self);
 
-    DispatchLifecycleEvent('SetSecondaryComponent', Format('Novo componente: %s',
-      [BoolToStr(Assigned(FSecondaryComponent), FSecondaryComponent.Name, 'nil')]));
+    if Assigned(FSecondaryComponent) then
+      DispatchLifecycleEvent('SetSecondaryComponent', Format('Novo componente: %s', [FSecondaryComponent.Name]))
+    else
+      DispatchLifecycleEvent('SetSecondaryComponent', 'Novo componente: nil');
 
     Invalidate;
   end;
@@ -355,7 +369,7 @@ var
   LinkInfo: string;
 begin
   { Blindagem contra tentativas de pintura durante destruição ou carga de DFM }
-  if (csDestroying in ComponentState) or (csReadingState in ComponentState) then
+  if (csDestroying in ComponentState) or (csReadingState in ControlState) then
     Exit;
 
   { 1. Desenho do Corpo Principal }
@@ -382,7 +396,7 @@ begin
     Canvas.Font.Style := [fsBold];
     Canvas.Brush.Style := bsClear;
     R := Rect(12, 0, Width - 12, FHeaderHeight);
-    Vcl.Graphics.DrawText(Canvas.Handle, PChar(FHeaderCaption), Length(FHeaderCaption),
+    Winapi.Windows.DrawText(Canvas.Handle, PChar(FHeaderCaption), Length(FHeaderCaption),
       R, DT_LEFT or DT_VCENTER or DT_SINGLELINE);
   end;
 
@@ -403,7 +417,7 @@ begin
 
       Canvas.Font.Color := clWhite;
       Canvas.Brush.Style := bsClear;
-      Vcl.Graphics.DrawText(Canvas.Handle, PChar(LinkInfo), Length(LinkInfo),
+      Winapi.Windows.DrawText(Canvas.Handle, PChar(LinkInfo), Length(LinkInfo),
         BadgeR, DT_CENTER or DT_VCENTER or DT_SINGLELINE);
     end
     else if FLinkStatusStyle = lssBorderHighlight then
@@ -450,19 +464,38 @@ begin
   SB := TStringBuilder.Create;
   try
     SB.AppendLine(Format('Componente: %s (%s)', [Name, ClassName]));
-    SB.AppendLine(Format('- HWND Alocado: %s', [BoolToStr(HandleAllocated, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- csDesigning: %s', [BoolToStr(csDesigning in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- csLoading: %s', [BoolToStr(csLoading in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- csDestroying: %s', [BoolToStr(csDestroying in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- csReadingState: %s', [BoolToStr(csReadingState in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- LinkedControl: %s',
-      [BoolToStr(Assigned(FLinkedControl), FLinkedControl.Name, 'nil')]));
-    SB.AppendLine(Format('- SecondaryComponent: %s',
-      [BoolToStr(Assigned(FSecondaryComponent), FSecondaryComponent.Name, 'nil')]));
+    SB.AppendLine(Format('- HWND Alocado: %s', [BoolToStrCustom(HandleAllocated, 'Sim', 'Não')]));
+    SB.AppendLine(Format('- csDesigning: %s', [BoolToStrCustom(csDesigning in ComponentState, 'Sim', 'Não')]));
+    SB.AppendLine(Format('- csLoading: %s', [BoolToStrCustom(csLoading in ComponentState, 'Sim', 'Não')]));
+    SB.AppendLine(Format('- csDestroying: %s', [BoolToStrCustom(csDestroying in ComponentState, 'Sim', 'Não')]));
+    SB.AppendLine(Format('- csReadingState: %s', [BoolToStrCustom(csReadingState in ControlState, 'Sim', 'Não')]));
+    if Assigned(FLinkedControl) then
+      SB.AppendLine(Format('- LinkedControl: %s', [FLinkedControl.Name]))
+    else
+      SB.AppendLine('- LinkedControl: nil');
+    if Assigned(FSecondaryComponent) then
+      SB.AppendLine(Format('- SecondaryComponent: %s', [FSecondaryComponent.Name]))
+    else
+      SB.AppendLine('- SecondaryComponent: nil');
     Result := SB.ToString;
   finally
     SB.Free;
   end;
+end;
+
+function TDlpSafeLinkedContainer.LinkedCount: Integer;
+begin
+  Result := 0;
+  if Assigned(FLinkedControl) then Inc(Result);
+  if Assigned(FSecondaryComponent) then Inc(Result);
+end;
+
+procedure TDlpSafeLinkedContainer.LinkComponent(AComponent: TComponent);
+begin
+  if AComponent is TControl then
+    LinkedControl := TControl(AComponent)
+  else
+    SecondaryComponent := AComponent;
 end;
 
 end.

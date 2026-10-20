@@ -48,7 +48,6 @@ type
     ErrorMsg: string;
   end;
 
-  class forward;
   TLazAsyncTaskRunner = class;
 
   {============================================================================

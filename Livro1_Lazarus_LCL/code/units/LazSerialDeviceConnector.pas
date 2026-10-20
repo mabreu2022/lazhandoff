@@ -44,7 +44,6 @@ type
     Payload: string;
   end;
 
-  class forward;
   TLazSerialDeviceConnector = class;
 
   { Thread de leitura assíncrona do descritor de porta serial }

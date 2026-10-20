@@ -19,7 +19,8 @@ uses
   SysUtils,
   Controls,
   Graphics,
-  DB;
+  DB,
+  DBCtrls;
 
 type
   { Classificação visual da situação de estoque }
@@ -31,7 +32,7 @@ type
   ============================================================================}
   TLazProductStockIndicator = class(TGraphicControl)
   private
-    FDataLink: TDataLink;
+    FDataLink: TFieldDataLink;
     FCurrentStockField: string;
     FMinStockField: string;
     FMaxStockField: string;
@@ -119,7 +120,8 @@ begin
   FNormalColor := $0032B032;   // Verde vibrante
   FExcessColor := $00D07020;   // Azul cobalto
 
-  FDataLink := TDataLink.Create;
+  FDataLink := TFieldDataLink.Create;
+  FDataLink.Control := Self;
   FDataLink.OnDataChange := @DataChange;
 end;
 

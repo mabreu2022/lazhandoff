@@ -16,7 +16,8 @@ uses
   System.SysUtils,
   System.Classes,
   System.TypInfo,
-  System.Rtti;
+  System.Rtti,
+  System.Generics.Collections;
 
 type
   { Atributo customizado para demonstrar anotação semântica em componentes }
@@ -71,7 +72,7 @@ type
     FOnPropertyInspected: TOnPropertyInspected;
 
     procedure SetTargetComponent(const AValue: TComponent);
-    function VisibilityToString(AVis: TMvVisibility): string;
+    function VisibilityToString(AVis: TMemberVisibility): string;
   protected
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
@@ -148,7 +149,7 @@ begin
     FTargetComponent := nil;
 end;
 
-function TDlpTypeHierarchyInspector.VisibilityToString(AVis: TMvVisibility): string;
+function TDlpTypeHierarchyInspector.VisibilityToString(AVis: TMemberVisibility): string;
 begin
   case AVis of
     mvPrivate:   Result := 'private';
@@ -288,6 +289,14 @@ begin
   end;
 end;
 
+function BoolToStrCustom(AValue: Boolean; const ATrueStr, AFalseStr: string): string;
+begin
+  if AValue then
+    Result := ATrueStr
+  else
+    Result := AFalseStr;
+end;
+
 function TDlpTypeHierarchyInspector.GenerateMarkdownDocumentation(AInstance: TObject): string;
 var
   CurrentObj: TObject;
@@ -357,8 +366,8 @@ begin
         Props[I].PropName,
         Props[I].TypeName,
         Props[I].Visibility,
-        BoolToStr(Props[I].IsReadable, 'Sim', 'Não'),
-        BoolToStr(Props[I].IsWritable, 'Sim', 'Não'),
+        BoolToStrCustom(Props[I].IsReadable, 'Sim', 'Não'),
+        BoolToStrCustom(Props[I].IsWritable, 'Sim', 'Não'),
         Props[I].AttributesSummary
       ]));
     end;

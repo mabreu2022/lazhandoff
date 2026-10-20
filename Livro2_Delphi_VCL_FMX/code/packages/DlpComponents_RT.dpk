@@ -1,6 +1,6 @@
-﻿package DlpComponents_RT;
+package DlpComponents_RT;
 
-{$R *.res}
+// {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by the compiler}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -12,7 +12,7 @@
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION LEVEL3}
+{$OPTIMIZATION ON}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO ON}
@@ -32,8 +32,14 @@
 requires
   rtl,
   vcl,
+  vclwinx,
   dbrtl,
-  soaprtl;
+  vcldb,
+  soaprtl,
+  FireDAC,
+  FireDACCommon,
+  FireDACCommonDriver,
+  DUnitXRuntime;
 
 contains
   DlpAccordionContainer in '..\units\DlpAccordionContainer.pas',
@@ -43,7 +49,6 @@ contains
   DlpAsyncTaskRunner in '..\units\DlpAsyncTaskRunner.pas',
   DlpAutoFormBuilder in '..\units\DlpAutoFormBuilder.pas',
   DlpAutoUpdateManager in '..\units\DlpAutoUpdateManager.pas',
-  DlpCleanArchProjectWizard in '..\units\DlpCleanArchProjectWizard.pas',
   DlpCodeBenchmarkHarness in '..\units\DlpCodeBenchmarkHarness.pas',
   DlpComponentTests in '..\units\DlpComponentTests.pas',
   DlpCRUDOperationsBar in '..\units\DlpCRUDOperationsBar.pas',
@@ -51,7 +56,6 @@ contains
   DlpCustomDBConnector in '..\units\DlpCustomDBConnector.pas',
   DlpCustomTabBar in '..\units\DlpCustomTabBar.pas',
   DlpDashboardCard in '..\units\DlpDashboardCard.pas',
-  DlpDashboardCardEditor in '..\units\DlpDashboardCardEditor.pas',
   DlpDatabaseConnectionPool in '..\units\DlpDatabaseConnectionPool.pas',
   DlpDataConnectionMonitor in '..\units\DlpDataConnectionMonitor.pas',
   DlpDataExportPipeline in '..\units\DlpDataExportPipeline.pas',
@@ -64,14 +68,12 @@ contains
   DlpFieldSchemaInspector in '..\units\DlpFieldSchemaInspector.pas',
   DlpFiscalXmlValidator in '..\units\DlpFiscalXmlValidator.pas',
   DlpGradientHeader in '..\units\DlpGradientHeader.pas',
-  DlpGradientPropEditor in '..\units\DlpGradientPropEditor.pas',
   DlpHighDpiThemedPanel in '..\units\DlpHighDpiThemedPanel.pas',
   DlpIndustrialTankGauge in '..\units\DlpIndustrialTankGauge.pas',
   DlpIntegrityWatchdog in '..\units\DlpIntegrityWatchdog.pas',
   DlpJwtSecurityManager in '..\units\DlpJwtSecurityManager.pas',
   DlpMatrixHeatmap in '..\units\DlpMatrixHeatmap.pas',
   DlpMqttClientBridge in '..\units\DlpMqttClientBridge.pas',
-  DlpPackageRegister in '..\units\DlpPackageRegister.pas',
   DlpProductStockIndicator in '..\units\DlpProductStockIndicator.pas',
   DlpPushNotificationHub in '..\units\DlpPushNotificationHub.pas',
   DlpRealtimeChartEngine in '..\units\DlpRealtimeChartEngine.pas',

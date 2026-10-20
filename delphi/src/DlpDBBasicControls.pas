@@ -256,7 +256,7 @@ begin
 
   Canvas.Font.Assign(Self.Font);
   Canvas.Brush.Style := bsClear;
-  Vcl.Graphics.DrawText(Canvas.Handle, PChar(DisplayText), Length(DisplayText),
+  Winapi.Windows.DrawText(Canvas.Handle, PChar(DisplayText), Length(DisplayText),
     R, DT_CENTER or DT_VCENTER or DT_SINGLELINE);
 end;
 
@@ -349,7 +349,7 @@ var
 begin
   if Assigned(FDataLink.Field) then
   begin
-    CleanText := Text.Replace(FCurrencySymbol, '').Replace(' ', '').Trim;
+    CleanText := Trim(StringReplace(StringReplace(Text, FCurrencySymbol, '', [rfReplaceAll]), ' ', '', [rfReplaceAll]));
     if CleanText = '' then
       FDataLink.Field.Clear
     else

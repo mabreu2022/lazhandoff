@@ -21,7 +21,6 @@ uses
   Controls,
   Forms,
   LCLType,
-  LCLMessages,
   LMessages;
 
 const
@@ -206,10 +205,12 @@ var
 begin
   IsTargetMsg := False;
 
-  if FInterceptKeyMessages and (Message.Msg in [LM_KEYDOWN, LM_KEYUP, LM_CHAR]) then
+  if FInterceptKeyMessages and
+    ((Message.Msg = LM_KEYDOWN) or (Message.Msg = LM_KEYUP) or (Message.Msg = LM_CHAR)) then
     IsTargetMsg := True;
 
-  if FInterceptMouseMessages and (Message.Msg in [LM_LBUTTONDOWN, LM_RBUTTONDOWN, LM_MOUSEMOVE]) then
+  if FInterceptMouseMessages and
+    ((Message.Msg = LM_LBUTTONDOWN) or (Message.Msg = LM_RBUTTONDOWN) or (Message.Msg = LM_MOUSEMOVE)) then
     IsTargetMsg := True;
 
   if IsTargetMsg and Assigned(FOnInterceptMessage) then

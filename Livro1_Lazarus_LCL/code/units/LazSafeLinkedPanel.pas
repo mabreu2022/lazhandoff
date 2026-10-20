@@ -18,6 +18,7 @@ interface
 uses
   Classes,
   SysUtils,
+  Types,
   Controls,
   Graphics,
   Forms,
@@ -80,6 +81,8 @@ type
     { Métodos públicos utilitários }
     function IsLinkedControlActive: Boolean;
     function GetLifecycleDiagnosticInfo: string;
+    function LinkedCount: Integer;
+    procedure LinkComponent(AComponent: TComponent);
   published
     { Propriedades de vinculação fraca com ciclo de vida seguro }
     property LinkedControl: TControl read FLinkedControl write SetLinkedControl;
@@ -231,8 +234,10 @@ begin
     if Assigned(FLinkedControl) then
       FLinkedControl.FreeNotification(Self);
 
-    NotifyStage('SetLinkedControl', Format('Novo controle: %s',
-      [BoolToStr(Assigned(FLinkedControl), FLinkedControl.Name, 'nil')]));
+    if Assigned(FLinkedControl) then
+      NotifyStage('SetLinkedControl', Format('Novo controle: %s', [FLinkedControl.Name]))
+    else
+      NotifyStage('SetLinkedControl', 'Novo controle: nil');
 
     Invalidate;
   end;
@@ -253,8 +258,10 @@ begin
     if Assigned(FCompanionComponent) then
       FCompanionComponent.FreeNotification(Self);
 
-    NotifyStage('SetCompanionComponent', Format('Novo companion: %s',
-      [BoolToStr(Assigned(FCompanionComponent), FCompanionComponent.Name, 'nil')]));
+    if Assigned(FCompanionComponent) then
+      NotifyStage('SetCompanionComponent', Format('Novo companion: %s', [FCompanionComponent.Name]))
+    else
+      NotifyStage('SetCompanionComponent', 'Novo companion: nil');
 
     Invalidate;
   end;
@@ -383,7 +390,7 @@ var
   OldBrushColor: TColor;
 begin
   { Supressão de pintura se o componente estiver sendo destruído ou durante leitura inicial }
-  if (csDestroying in ComponentState) or (csReadingState in ComponentState) then
+  if (csDestroying in ComponentState) or (csReadingState in ControlState) then
     Exit;
 
   { 1. Fundo do Contêiner }
@@ -457,15 +464,34 @@ begin
     SB.AppendLine(Format('- csDesigning: %s', [BoolToStr(csDesigning in ComponentState, 'Sim', 'Não')]));
     SB.AppendLine(Format('- csLoading: %s', [BoolToStr(csLoading in ComponentState, 'Sim', 'Não')]));
     SB.AppendLine(Format('- csDestroying: %s', [BoolToStr(csDestroying in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- csReadingState: %s', [BoolToStr(csReadingState in ComponentState, 'Sim', 'Não')]));
-    SB.AppendLine(Format('- LinkedControl: %s',
-      [BoolToStr(Assigned(FLinkedControl), FLinkedControl.Name, 'nil')]));
-    SB.AppendLine(Format('- CompanionComponent: %s',
-      [BoolToStr(Assigned(FCompanionComponent), FCompanionComponent.Name, 'nil')]));
+    SB.AppendLine(Format('- csReadingState: %s', [BoolToStr(csReadingState in ControlState, 'Sim', 'Não')]));
+    if Assigned(FLinkedControl) then
+      SB.AppendLine(Format('- LinkedControl: %s', [FLinkedControl.Name]))
+    else
+      SB.AppendLine('- LinkedControl: nil');
+    if Assigned(FCompanionComponent) then
+      SB.AppendLine(Format('- CompanionComponent: %s', [FCompanionComponent.Name]))
+    else
+      SB.AppendLine('- CompanionComponent: nil');
     Result := SB.ToString;
   finally
     SB.Free;
   end;
+end;
+
+function TLazSafeLinkedPanel.LinkedCount: Integer;
+begin
+  Result := 0;
+  if Assigned(FLinkedControl) then Inc(Result);
+  if Assigned(FCompanionComponent) then Inc(Result);
+end;
+
+procedure TLazSafeLinkedPanel.LinkComponent(AComponent: TComponent);
+begin
+  if AComponent is TControl then
+    LinkedControl := TControl(AComponent)
+  else
+    CompanionComponent := AComponent;
 end;
 
 end.

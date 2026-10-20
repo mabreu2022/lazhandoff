@@ -59,8 +59,8 @@ type
     procedure Paint; override;
     procedure Resize; override;
     procedure MouseDown(Button: TMouseButton; Shift: TShiftState; X, Y: Integer); override;
-    procedure MouseEnter; override;
-    procedure MouseLeave; override;
+    procedure CMMouseEnter(var Message: TMessage); message CM_MOUSEENTER;
+    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
     procedure KeyDown(var Key: Word; Shift: TShiftState); override;
     procedure DoEnter; override;
     procedure DoExit; override;
@@ -310,16 +310,16 @@ begin
   end;
 end;
 
-procedure TDlpAccordionContainer.MouseEnter;
+procedure TDlpAccordionContainer.CMMouseEnter(var Message: TMessage);
 begin
-  inherited MouseEnter;
+  inherited;
   FIsHovered := True;
   Invalidate;
 end;
 
-procedure TDlpAccordionContainer.MouseLeave;
+procedure TDlpAccordionContainer.CMMouseLeave(var Message: TMessage);
 begin
-  inherited MouseLeave;
+  inherited;
   FIsHovered := False;
   Invalidate;
 end;
@@ -393,7 +393,7 @@ begin
   Canvas.Font.Color := Font.Color;
   Canvas.Font.Style := [fsBold];
   TextR := Rect(36, 0, Width - 14, FHeaderHeight);
-  Vcl.Graphics.DrawText(Canvas.Handle, PChar(FHeaderCaption), Length(FHeaderCaption),
+  Winapi.Windows.DrawText(Canvas.Handle, PChar(FHeaderCaption), Length(FHeaderCaption),
     TextR, DT_LEFT or DT_VCENTER or DT_SINGLELINE);
 
   { 5. Retângulo de Foco de Teclado }

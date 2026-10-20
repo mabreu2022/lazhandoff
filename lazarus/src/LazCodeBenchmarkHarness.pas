@@ -125,6 +125,7 @@ end;
 
 function TLazCodeBenchmarkHarness.ReadCpuCycles: QWord;
 {$IFDEF CPUX86_64}
+{$asmmode intel}
 assembler; nostackframe;
 asm
   rdtsc
@@ -133,6 +134,7 @@ asm
 end;
 {$ELSE}
 {$IFDEF CPU386}
+{$asmmode intel}
 assembler;
 asm
   rdtsc

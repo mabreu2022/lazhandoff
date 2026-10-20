@@ -167,6 +167,20 @@ begin
   Result := Candidate;
 end;
 
+function FindUniqueName(AOwner: TComponent; const ABaseName: string): string;
+var
+  Idx: Integer;
+begin
+  Result := ABaseName;
+  if AOwner = nil then Exit;
+  Idx := 1;
+  while AOwner.FindComponent(Result) <> nil do
+  begin
+    Inc(Idx);
+    Result := Format('%s_%d', [ABaseName, Idx]);
+  end;
+end;
+
 procedure TLazAutoFormBuilder.ClearGeneratedControls;
 var
   i: Integer;
@@ -248,7 +262,7 @@ begin
         CtrlLabel.Caption := CtrlLabel.Caption + ' *';
 
       if EffectiveOwner <> nil then
-        CtrlLabel.Name := EffectiveOwner.FindUniqueName('lbl' + SanitizedName);
+        CtrlLabel.Name := FindUniqueName(EffectiveOwner, 'lbl' + SanitizedName);
 
       FGeneratedControls.Add(CtrlLabel);
 
@@ -266,7 +280,7 @@ begin
           NewNumEdit.DataField := Schemas[i].FieldName;
 
           if EffectiveOwner <> nil then
-            NewNumEdit.Name := EffectiveOwner.FindUniqueName('edt' + SanitizedName);
+            NewNumEdit.Name := FindUniqueName(EffectiveOwner, 'edt' + SanitizedName);
 
           FGeneratedControls.Add(NewNumEdit);
         end;
@@ -285,7 +299,7 @@ begin
           NewCheck.ValueUnchecked := 'False';
 
           if EffectiveOwner <> nil then
-            NewCheck.Name := EffectiveOwner.FindUniqueName('chk' + SanitizedName);
+            NewCheck.Name := FindUniqueName(EffectiveOwner, 'chk' + SanitizedName);
 
           FGeneratedControls.Add(NewCheck);
         end;
@@ -304,7 +318,7 @@ begin
           NewMemo.ScrollBars := ssVertical;
 
           if EffectiveOwner <> nil then
-            NewMemo.Name := EffectiveOwner.FindUniqueName('mem' + SanitizedName);
+            NewMemo.Name := FindUniqueName(EffectiveOwner, 'mem' + SanitizedName);
 
           FGeneratedControls.Add(NewMemo);
         end;
@@ -321,7 +335,7 @@ begin
           NewEdit.DataField := Schemas[i].FieldName;
 
           if EffectiveOwner <> nil then
-            NewEdit.Name := EffectiveOwner.FindUniqueName('edt' + SanitizedName);
+            NewEdit.Name := FindUniqueName(EffectiveOwner, 'edt' + SanitizedName);
 
           FGeneratedControls.Add(NewEdit);
         end;

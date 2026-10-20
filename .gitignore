@@ -38,3 +38,4 @@ lib/
 *.dsk
 *.opt
 *.projusers
+packagefiles.xml

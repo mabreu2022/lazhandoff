@@ -17,7 +17,8 @@ interface
 uses
   Classes,
   SysUtils,
-  DB;
+  DB,
+  DBCtrls;
 
 type
   { Declaração antecipada }
@@ -34,7 +35,7 @@ type
     procedure ActiveChanged; override;
     procedure DataSetChanged; override;
     procedure EditingChanged; override;
-    procedure RecordChanged(Field: TField); override;
+    procedure RecordChanged(AField: TField); override;
     procedure UpdateData; override;
   public
     constructor Create(AConnector: TLazCustomDBConnector);
@@ -130,11 +131,11 @@ begin
     FConnector.DoEditingChanged;
 end;
 
-procedure TLazFieldDataLinkBridge.RecordChanged(Field: TField);
+procedure TLazFieldDataLinkBridge.RecordChanged(AField: TField);
 begin
-  inherited RecordChanged(Field);
+  inherited RecordChanged(AField);
   if Assigned(FConnector) then
-    FConnector.DoRecordChanged(Field);
+    FConnector.DoRecordChanged(AField);
 end;
 
 procedure TLazFieldDataLinkBridge.UpdateData;

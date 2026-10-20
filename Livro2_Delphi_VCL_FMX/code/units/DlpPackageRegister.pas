@@ -25,7 +25,9 @@ procedure Register;
 
 implementation
 
+{$IFDEF HAS_DLP_ICONS}
 {$R dlp_components_icons.res}
+{$ENDIF}
 
 procedure Register;
 begin

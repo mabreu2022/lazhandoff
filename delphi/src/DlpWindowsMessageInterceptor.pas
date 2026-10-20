@@ -165,7 +165,7 @@ begin
   if csDesigning in ComponentState then
     Exit;
 
-  if Assigned(FTargetControl) and (FOriginalWindowProc = nil) then
+  if Assigned(FTargetControl) and not Assigned(FOriginalWindowProc) then
   begin
     FOriginalWindowProc := FTargetControl.WindowProc;
     FTargetControl.WindowProc := InterceptorWindowProc;
@@ -198,14 +198,14 @@ var
 begin
   ShouldIntercept := False;
 
-  if FInterceptKeyboard and (Message.Msg in [WM_KEYDOWN, WM_KEYUP, WM_CHAR, WM_SYSKEYDOWN, WM_SYSKEYUP]) then
-    ShouldIntercept := True;
-
-  if FInterceptMouse and (Message.Msg in [WM_LBUTTONDOWN, WM_RBUTTONDOWN, WM_MOUSEMOVE, WM_MOUSEWHEEL]) then
-    ShouldIntercept := True;
-
-  if FInterceptSystem and (Message.Msg in [WM_SYSCOMMAND, WM_COMMAND, WM_SETFOCUS, WM_KILLFOCUS]) then
-    ShouldIntercept := True;
+  case Message.Msg of
+    WM_KEYDOWN, WM_KEYUP, WM_CHAR, WM_SYSKEYDOWN, WM_SYSKEYUP:
+      if FInterceptKeyboard then ShouldIntercept := True;
+    WM_LBUTTONDOWN, WM_RBUTTONDOWN, WM_MOUSEMOVE, WM_MOUSEWHEEL:
+      if FInterceptMouse then ShouldIntercept := True;
+    WM_SYSCOMMAND, WM_COMMAND, WM_SETFOCUS, WM_KILLFOCUS:
+      if FInterceptSystem then ShouldIntercept := True;
+  end;
 
   if ShouldIntercept and Assigned(FOnMessageIntercepted) then
   begin
@@ -238,6 +238,7 @@ procedure TDlpWindowsMessageInterceptor.QueueAsyncNotification(const APayload: s
 var
   CurrentToken: Int64;
   SavedPayload: string;
+  Proc: TThreadProcedure;
 begin
   if not Assigned(FOnAsyncDispatched) then
     Exit;
@@ -247,12 +248,13 @@ begin
   SavedPayload := APayload;
 
   { Enfileira de forma assíncrona na UI thread sem risco de deadlocks }
-  TThread.Queue(nil,
-    procedure
+  Proc := procedure
     begin
       if Assigned(FOnAsyncDispatched) and not (csDestroying in ComponentState) then
         FOnAsyncDispatched(Self, CurrentToken, SavedPayload);
-    end);
+    end;
+
+  TThread.Queue(nil, Proc);
 end;
 
 procedure TDlpWindowsMessageInterceptor.QueueAnonymousCallback(
@@ -261,6 +263,7 @@ var
   CurrentToken: Int64;
   SavedPayload: string;
   SavedCallback: TDlpAsyncMessageCallback;
+  Proc: TThreadProcedure;
 begin
   if not Assigned(ACallback) then
     Exit;
@@ -270,12 +273,13 @@ begin
   SavedPayload := APayload;
   SavedCallback := ACallback;
 
-  TThread.Queue(nil,
-    procedure
+  Proc := procedure
     begin
       if not (csDestroying in ComponentState) then
         SavedCallback(CurrentToken, SavedPayload);
-    end);
+    end;
+
+  TThread.Queue(nil, Proc);
 end;
 
 end.

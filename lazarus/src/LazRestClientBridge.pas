@@ -37,7 +37,6 @@ type
     Callback: TOnRestResponseEvent;
   end;
 
-  class forward;
   TLazRestClientBridge = class;
 
   { Thread interna para execução assíncrona de requisições de rede }

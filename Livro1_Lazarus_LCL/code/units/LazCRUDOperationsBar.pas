@@ -22,6 +22,7 @@ uses
   Forms,
   Buttons,
   ExtCtrls,
+  Dialogs,
   DB;
 
 type

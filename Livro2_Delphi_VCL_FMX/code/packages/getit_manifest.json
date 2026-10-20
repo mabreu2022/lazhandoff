@@ -1,0 +1,30 @@
+{
+  "id": "dlp.component.engineering",
+  "name": "Delphi Component Engineering Suite",
+  "version": "1.0.0",
+  "vendor": "Engenharia de Software Especializada & Arquitetura RAD",
+  "category": "Components",
+  "compiler": "12.0",
+  "product_name": "Delphi 12 Athens+",
+  "platforms": [
+    "Win32",
+    "Win64"
+  ],
+  "description": "Suíte corporativa e moderna de componentes para Delphi 12 Athens+ (VCL e ToolsAPI). Contém contêineres resilientes com proteção de dangling pointers, editores visuais de gradientes, wizards limpos de projeto, gauges vetoriais de alta resolução, seletores relacionais DB-Aware (TagBox), monitores FireDAC com prevenção de transações zumbis, motor de geração automática de telas CRUD (AutoFormBuilder), clientes RESTful nativos sobre System.Net.HttpClient e drivers de hardware serial para balanças de automação comercial.",
+  "packages": [
+    {
+      "project": "DlpComponents_RT.dpk",
+      "type": "Runtime",
+      "platforms": [ "Win32", "Win64" ]
+    },
+    {
+      "project": "DlpComponents_DT.dpk",
+      "type": "Designtime",
+      "platforms": [ "Win32" ]
+    }
+  ],
+  "lib_paths": {
+    "Win32": [ "lib\\Win32\\Release" ],
+    "Win64": [ "lib\\Win64\\Release" ]
+  }
+}

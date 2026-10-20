@@ -1,0 +1,40 @@
+# ==============================================================================
+# Git Ignore - Object Pascal Engineering (Lazarus LCL & Delphi VCL/FMX)
+# ==============================================================================
+
+# Compilação e Artefatos Temporários do Delphi
+*.dcu
+*.bpl
+*.dcp
+*.drc
+*.map
+*.rsm
+*.stat
+*.identcache
+*.local
+*.tvsconfig
+*.skincfg
+__history/
+__recovery/
+
+# Compilação e Artefatos Temporários do Free Pascal / Lazarus
+*.ppu
+*.o
+*.or
+*.rsj
+*.compiled
+*.dbg
+backup/
+lib/
+*.lps
+
+# Logs de Erros e Relatórios Locais de Profiling
+*.log
+*.tmp
+*.bak
+*.dmp
+
+# Configurações Pessoais de IDE e Usuário
+*.dsk
+*.opt
+*.projusers

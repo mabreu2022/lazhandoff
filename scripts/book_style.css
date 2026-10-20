@@ -1,0 +1,376 @@
+/* ==============================================================================
+   DESIGN SYSTEM EDITORIAL PARA LIVROS TÉCNICOS DE ALTA PERFORMANCE
+   Inspirado no padrão O'Reilly, Addison-Wesley e Manning Publications
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap');
+
+@page {
+  size: A4;
+  margin: 22mm 18mm 22mm 18mm;
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: #64748b;
+  }
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.65;
+  color: #1e293b;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------------
+   CABEÇALHOS E HIERARQUIA TIPOGRÁFICA
+   ------------------------------------------------------------------------------ */
+
+/* Título de cada Módulo inicia em nova página */
+h1 {
+  page-break-before: always;
+  break-before: page;
+  color: #0f2744;
+  font-size: 18pt;
+  font-weight: 800;
+  border-bottom: 2.5px solid #0369a1;
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: -0.4px;
+}
+
+h2 {
+  color: #0369a1;
+  font-size: 13pt;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+h3 {
+  color: #1e293b;
+  font-size: 11pt;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+h4, h5, h6 {
+  color: #334155;
+  font-size: 10pt;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ------------------------------------------------------------------------------
+   BLOCOS DE CÓDIGO-FONTE: PADRÃO EDITORIAL PROFISSIONAL (FUNDO CLARO)
+   Substituição do fundo escuro/terminal por fundo limpo, legível e elegante
+   ------------------------------------------------------------------------------ */
+
+pre, code {
+  font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 8.5pt;
+}
+
+/* Caixa de código: fundo off-white/cinza sutil, borda nítida e barra azul de destaque */
+pre {
+  background-color: #f8fafc;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0284c7;
+  border-radius: 4px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  line-height: 1.48;
+  margin: 14px 0 16px 0;
+  page-break-inside: avoid;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+/* Código em linha (inline code) */
+code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 8.5pt;
+  border: 1px solid #e2e8f0;
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------------------
+   DESTAQUE SINTÁTICO DE CÓDIGO OBJECT PASCAL (HIGH-CONTRAST LIGHT THEME)
+   Tokens padronizados para compilações Pandoc
+   ------------------------------------------------------------------------------ */
+
+/* Palavras reservadas (unit, interface, implementation, class, var, begin, end, etc.) */
+code span.kw {
+  color: #0550ae !important;
+  font-weight: 700 !important;
+}
+
+/* Estruturas de controle (if, then, else, for, while, repeat, until, case) */
+code span.cf {
+  color: #0550ae !important;
+  font-weight: 700 !important;
+}
+
+/* Tipos nativos e classes (TObject, TComponent, string, Integer, Boolean, Double) */
+code span.dt {
+  color: #0969da !important;
+  font-weight: 600 !important;
+}
+
+/* Strings literais ('Hello World') - Tom vinho/carmesim clássico da engenharia Pascal */
+code span.st, code span.ch {
+  color: #a31515 !important;
+  font-weight: 400 !important;
+}
+
+/* Comentários ({ ... }, // ..., (* ... *)) - Cinza ardósia suave em itálico */
+code span.co, code span.cv, code span.do {
+  color: #57606a !important;
+  font-style: italic !important;
+}
+
+/* Funções, procedimentos e métodos (Create, Destroy, Invalidate, Free) */
+code span.fu {
+  color: #8250df !important;
+  font-weight: 600 !important;
+}
+
+/* Diretivas de compilação ({$mode objfpc}, {$IFDEF}, {$R *.res}) */
+code span.pp {
+  color: #6f42c1 !important;
+  font-weight: 700 !important;
+}
+
+/* Constantes e números decimais/hexadecimais ($00FFFFFF, 12345) */
+code span.dv, code span.bn, code span.fl, code span.cn {
+  color: #116329 !important;
+  font-weight: 500 !important;
+}
+
+/* Operadores e delimitadores (:=, =, +, -, :, ;) */
+code span.op {
+  color: #24292f !important;
+}
+
+/* Variáveis e parâmetros */
+code span.va {
+  color: #1f2328 !important;
+}
+
+/* Alertas e avisos em anotações */
+code span.al {
+  color: #cf222e !important;
+  font-weight: bold !important;
+  background-color: #ffebe9 !important;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+/* Erros sintáticos */
+code span.er {
+  color: #cf222e !important;
+  text-decoration: underline !important;
+}
+
+/* ------------------------------------------------------------------------------
+   TABELAS TÉCNICAS E COMPARATIVAS
+   ------------------------------------------------------------------------------ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px 0;
+  font-size: 9pt;
+  page-break-inside: avoid;
+}
+
+th {
+  background-color: #0f2744;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid #0f2744;
+  letter-spacing: 0.2px;
+}
+
+td {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ------------------------------------------------------------------------------
+   CALLOUTS, CITAS E BOXES DE AVISO (BLOCKQUOTE)
+   ------------------------------------------------------------------------------ */
+
+blockquote {
+  border-left: 4px solid #0284c7;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  padding: 12px 18px;
+  margin: 16px 0;
+  border-radius: 0 4px 4px 0;
+  page-break-inside: avoid;
+  font-size: 9.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  text-align: left;
+}
+
+blockquote p + p {
+  margin-top: 8px;
+}
+
+/* ------------------------------------------------------------------------------
+   SUMÁRIO (TABLE OF CONTENTS)
+   ------------------------------------------------------------------------------ */
+
+#TOC {
+  page-break-after: always;
+  break-after: page;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+}
+
+#TOC h2 {
+  border-bottom: 2px solid #0369a1;
+  color: #0f2744;
+  margin-top: 0;
+  font-size: 14pt;
+}
+
+#TOC ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#TOC > ul {
+  padding-left: 0;
+}
+
+#TOC li {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+#TOC a {
+  color: #0369a1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 9.5pt;
+}
+
+#TOC a:hover {
+  text-decoration: underline;
+  color: #0284c7;
+}
+
+/* ------------------------------------------------------------------------------
+   ELEMENTOS DIVERSOS E ESTRUTURA
+   ------------------------------------------------------------------------------ */
+
+a {
+  color: #0284c7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 12px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 24px 0;
+}
+
+/* Capa e cabeçalho inicial */
+#title-block-header {
+  page-break-after: always;
+  break-after: page;
+  padding: 80px 20px 40px 20px;
+  text-align: center;
+}
+
+#title-block-header .title {
+  font-size: 26pt;
+  font-weight: 900;
+  color: #0f2744;
+  border-bottom: none;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+#title-block-header .subtitle {
+  font-size: 13pt;
+  color: #475569;
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+#title-block-header .author {
+  font-size: 11pt;
+  color: #0369a1;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#title-block-header .date {
+  font-size: 10pt;
+  color: #64748b;
+}

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="laz_eng_components_rt"/>
+    <Type Value="RunTimeOnly"/>
+    <Author Value="Engenharia de Software Especializada &amp; Arquitetura RAD"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="..\units"/>
+        <UnitOutputDirectory Value="..\lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="ObjFPC"/>
+        </SyntaxOptions>
+      </Parsing>
+      <CodeGeneration>
+        <SmartLinkUnit Value="True"/>
+        <Optimizations>
+          <OptimizationLevel Value="3"/>
+        </Optimizations>
+      </CodeGeneration>
+      <Linking>
+        <Debugging>
+          <GenerateDebugInfo Value="False"/>
+        </Debugging>
+      </Linking>
+    </CompilerOptions>
+    <Description Value="Pacote de Runtime da Coleção Completa de Engenharia Avançada de Componentes para Lazarus (50 Módulos)"/>
+    <License Value="MIT"/>
+    <Version Major="1" Minor="0" Release="0" Build="0"/>
+    <Files Count="51">
+      <Item1>
+        <Filename Value="..\units\LazAccordionContainer.pas"/>
+        <UnitName Value="LazAccordionContainer"/>
+      </Item1>
+      <Item2>
+        <Filename Value="..\units\LazAiPromptDispatcher.pas"/>
+        <UnitName Value="LazAiPromptDispatcher"/>
+      </Item2>
+      <Item3>
+        <Filename Value="..\units\LazAiStructuredExtractor.pas"/>
+        <UnitName Value="LazAiStructuredExtractor"/>
+      </Item3>
+      <Item4>
+        <Filename Value="..\units\LazAnalogGauge.pas"/>
+        <UnitName Value="LazAnalogGauge"/>
+      </Item4>
+      <Item5>
+        <Filename Value="..\units\LazAsyncEventHook.pas"/>
+        <UnitName Value="LazAsyncEventHook"/>
+      </Item5>
+      <Item6>
+        <Filename Value="..\units\LazAsyncTaskRunner.pas"/>
+        <UnitName Value="LazAsyncTaskRunner"/>
+      </Item6>
+      <Item7>
+        <Filename Value="..\units\LazAutoFormBuilder.pas"/>
+        <UnitName Value="LazAutoFormBuilder"/>
+      </Item7>
+      <Item8>
+        <Filename Value="..\units\LazAutoUpdateManager.pas"/>
+        <UnitName Value="LazAutoUpdateManager"/>
+      </Item8>
+      <Item9>
+        <Filename Value="..\units\LazBinaryBlobContainer.pas"/>
+        <UnitName Value="LazBinaryBlobContainer"/>
+      </Item9>
+      <Item10>
+        <Filename Value="..\units\LazCardView.pas"/>
+        <UnitName Value="LazCardView"/>
+      </Item10>
+      <Item11>
+        <Filename Value="..\units\LazCardViewEditor.pas"/>
+        <UnitName Value="LazCardViewEditor"/>
+      </Item11>
+      <Item12>
+        <Filename Value="..\units\LazCleanArchFormWizard.pas"/>
+        <UnitName Value="LazCleanArchFormWizard"/>
+      </Item12>
+      <Item13>
+        <Filename Value="..\units\LazCodeBenchmarkHarness.pas"/>
+        <UnitName Value="LazCodeBenchmarkHarness"/>
+      </Item13>
+      <Item14>
+        <Filename Value="..\units\LazComponentTests.pas"/>
+        <UnitName Value="LazComponentTests"/>
+      </Item14>
+      <Item15>
+        <Filename Value="..\units\LazCRUDOperationsBar.pas"/>
+        <UnitName Value="LazCRUDOperationsBar"/>
+      </Item15>
+      <Item16>
+        <Filename Value="..\units\LazCryptoVaultStorage.pas"/>
+        <UnitName Value="LazCryptoVaultStorage"/>
+      </Item16>
+      <Item17>
+        <Filename Value="..\units\LazCustomDBConnector.pas"/>
+        <UnitName Value="LazCustomDBConnector"/>
+      </Item17>
+      <Item18>
+        <Filename Value="..\units\LazCustomTabBar.pas"/>
+        <UnitName Value="LazCustomTabBar"/>
+      </Item18>
+      <Item19>
+        <Filename Value="..\units\LazDatabaseConnectionPool.pas"/>
+        <UnitName Value="LazDatabaseConnectionPool"/>
+      </Item19>
+      <Item20>
+        <Filename Value="..\units\LazDataConnectionMonitor.pas"/>
+        <UnitName Value="LazDataConnectionMonitor"/>
+      </Item20>
+      <Item21>
+        <Filename Value="..\units\LazDataExportPipeline.pas"/>
+        <UnitName Value="LazDataExportPipeline"/>
+      </Item21>
+      <Item22>
+        <Filename Value="..\units\LazDBBasicControls.pas"/>
+        <UnitName Value="LazDBBasicControls"/>
+      </Item22>
+      <Item23>
+        <Filename Value="..\units\LazDBLookupTagBox.pas"/>
+        <UnitName Value="LazDBLookupTagBox"/>
+      </Item23>
+      <Item24>
+        <Filename Value="..\units\LazEmbeddedWebhookServer.pas"/>
+        <UnitName Value="LazEmbeddedWebhookServer"/>
+      </Item24>
+      <Item25>
+        <Filename Value="..\units\LazEncryptedZipArchive.pas"/>
+        <UnitName Value="LazEncryptedZipArchive"/>
+      </Item25>
+      <Item26>
+        <Filename Value="..\units\LazFastPdfReport.pas"/>
+        <UnitName Value="LazFastPdfReport"/>
+      </Item26>
+      <Item27>
+        <Filename Value="..\units\LazFieldSchemaInspector.pas"/>
+        <UnitName Value="LazFieldSchemaInspector"/>
+      </Item27>
+      <Item28>
+        <Filename Value="..\units\LazFiscalXmlValidator.pas"/>
+        <UnitName Value="LazFiscalXmlValidator"/>
+      </Item28>
+      <Item29>
+        <Filename Value="..\units\LazHighDpiThemedPanel.pas"/>
+        <UnitName Value="LazHighDpiThemedPanel"/>
+      </Item29>
+      <Item30>
+        <Filename Value="..\units\LazIndustrialTankGauge.pas"/>
+        <UnitName Value="LazIndustrialTankGauge"/>
+      </Item30>
+      <Item31>
+        <Filename Value="..\units\LazIntegrityWatchdog.pas"/>
+        <UnitName Value="LazIntegrityWatchdog"/>
+      </Item31>
+      <Item32>
+        <Filename Value="..\units\LazJsonConfig.pas"/>
+        <UnitName Value="LazJsonConfig"/>
+      </Item32>
+      <Item33>
+        <Filename Value="..\units\LazJsonConfigPropEditor.pas"/>
+        <UnitName Value="LazJsonConfigPropEditor"/>
+      </Item33>
+      <Item34>
+        <Filename Value="..\units\LazJwtSecurityManager.pas"/>
+        <UnitName Value="LazJwtSecurityManager"/>
+      </Item34>
+      <Item35>
+        <Filename Value="..\units\LazMatrixHeatmap.pas"/>
+        <UnitName Value="LazMatrixHeatmap"/>
+      </Item35>
+      <Item36>
+        <Filename Value="..\units\LazMqttClientBridge.pas"/>
+        <UnitName Value="LazMqttClientBridge"/>
+      </Item36>
+      <Item37>
+        <Filename Value="..\units\LazPackageRegister.pas"/>
+        <UnitName Value="LazPackageRegister"/>
+      </Item37>
+      <Item38>
+        <Filename Value="..\units\LazProductStockIndicator.pas"/>
+        <UnitName Value="LazProductStockIndicator"/>
+      </Item38>
+      <Item39>
+        <Filename Value="..\units\LazPushNotificationHub.pas"/>
+        <UnitName Value="LazPushNotificationHub"/>
+      </Item39>
+      <Item40>
+        <Filename Value="..\units\LazRealtimeChartEngine.pas"/>
+        <UnitName Value="LazRealtimeChartEngine"/>
+      </Item40>
+      <Item41>
+        <Filename Value="..\units\LazReleasePipeline.pas"/>
+        <UnitName Value="LazReleasePipeline"/>
+      </Item41>
+      <Item42>
+        <Filename Value="..\units\LazRestClientBridge.pas"/>
+        <UnitName Value="LazRestClientBridge"/>
+      </Item42>
+      <Item43>
+        <Filename Value="..\units\LazSafeLinkedPanel.pas"/>
+        <UnitName Value="LazSafeLinkedPanel"/>
+      </Item43>
+      <Item44>
+        <Filename Value="..\units\LazSecurityRoleManager.pas"/>
+        <UnitName Value="LazSecurityRoleManager"/>
+      </Item44>
+      <Item45>
+        <Filename Value="..\units\LazSerialDeviceConnector.pas"/>
+        <UnitName Value="LazSerialDeviceConnector"/>
+      </Item45>
+      <Item46>
+        <Filename Value="..\units\LazSystemDaemonController.pas"/>
+        <UnitName Value="LazSystemDaemonController"/>
+      </Item46>
+      <Item47>
+        <Filename Value="..\units\LazSystemMetricsProbe.pas"/>
+        <UnitName Value="LazSystemMetricsProbe"/>
+      </Item47>
+      <Item48>
+        <Filename Value="..\units\LazTypeInfoInspector.pas"/>
+        <UnitName Value="LazTypeInfoInspector"/>
+      </Item48>
+      <Item49>
+        <Filename Value="..\units\LazVectorDonutChart.pas"/>
+        <UnitName Value="LazVectorDonutChart"/>
+      </Item49>
+      <Item50>
+        <Filename Value="..\units\LazVectorEmbeddingStore.pas"/>
+        <UnitName Value="LazVectorEmbeddingStore"/>
+      </Item50>
+      <Item51>
+        <Filename Value="..\units\LazWebSocketLiveClient.pas"/>
+        <UnitName Value="LazWebSocketLiveClient"/>
+      </Item51>
+    </Files>
+    <RequiredPkgs Count="3">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="SQLDB"/>
+      </Item3>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

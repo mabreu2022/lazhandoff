@@ -1,0 +1,37 @@
+{
+  "PackageName": "laz_eng_components",
+  "DisplayName": "Lazarus Component Engineering Suite",
+  "Category": "Components",
+  "Version": "1.0.0.0",
+  "Author": "Engenharia de Software Especializada & Arquitetura RAD",
+  "License": "LGPL with linking exception (modified LGPL)",
+  "Homepage": "https://github.com/organization/laz_eng_components",
+  "Repository": "https://github.com/organization/laz_eng_components.git",
+  "Description": "Suíte avançada e profissional de componentes para Lazarus IDE e LCL (Free Pascal 3.2+ / Lazarus 3.x+). Inclui contêineres resilientes, editores de propriedades JSON, gauges analógicos com interpolação vetorial, controles DB-Aware multivalorados (TagBox), monitores de transações SQLDB, gerador algorítmico de formulários CRUD (AutoFormBuilder) e clientes REST e seriais assíncronos.",
+  "Dependencies": [
+    {
+      "Name": "LCL",
+      "MinVersion": "3.0.0"
+    },
+    {
+      "Name": "SQLDB",
+      "MinVersion": "1.0.0"
+    },
+    {
+      "Name": "IDEIntf",
+      "MinVersion": "3.0.0"
+    }
+  ],
+  "Packages": [
+    {
+      "Name": "laz_eng_components_rt.lpk",
+      "Type": "RunTimeOnly"
+    },
+    {
+      "Name": "laz_eng_components_dt.lpk",
+      "Type": "DesignTime"
+    }
+  ],
+  "FPCMinVersion": "3.2.2",
+  "LazMinVersion": "3.0.0"
+}

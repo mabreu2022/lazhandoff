@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="laz_eng_components_dt"/>
+    <Type Value="DesignTime"/>
+    <Author Value="Engenharia de Software Especializada &amp; Arquitetura RAD"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="..\units"/>
+        <UnitOutputDirectory Value="..\lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="ObjFPC"/>
+        </SyntaxOptions>
+      </Parsing>
+    </CompilerOptions>
+    <Description Value="Pacote de Design-Time da Coleção de Engenharia Avançada de Componentes para Lazarus"/>
+    <License Value="MIT"/>
+    <Version Major="1" Minor="0" Release="0" Build="0"/>
+    <Files Count="1">
+      <Item1>
+        <Filename Value="..\units\LazPackageRegister.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="LazPackageRegister"/>
+      </Item1>
+    </Files>
+    <RequiredPkgs Count="2">
+      <Item1>
+        <PackageName Value="laz_eng_components_rt"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="IDEIntf"/>
+      </Item2>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

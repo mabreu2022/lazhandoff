@@ -1,0 +1,26 @@
+name: CI/CD Delphi MSBuild
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-delphi:
+    name: Compilação Delphi 12 Athens+ (Windows)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Compilar Pacote Runtime (50 Módulos - Win64)
+        run: msbuild Livro2_Delphi_VCL_FMX\code\packages\DlpComponents_RT.dpk /p:Config=Release /p:Platform=Win64
+
+      - name: Compilar Pacote Design-Time (Win32)
+        run: msbuild Livro2_Delphi_VCL_FMX\code\packages\DlpComponents_DT.dpk /p:Config=Release /p:Platform=Win32

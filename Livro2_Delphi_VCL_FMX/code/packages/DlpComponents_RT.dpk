@@ -1,0 +1,91 @@
+﻿package DlpComponents_RT;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by the compiler}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION LEVEL3}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE RELEASE}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Coleção Completa de Engenharia Avançada de Componentes para Delphi (50 Módulos) - Runtime'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  soaprtl;
+
+contains
+  DlpAccordionContainer in '..\units\DlpAccordionContainer.pas',
+  DlpAiPromptDispatcher in '..\units\DlpAiPromptDispatcher.pas',
+  DlpAiStructuredExtractor in '..\units\DlpAiStructuredExtractor.pas',
+  DlpAnalogGauge in '..\units\DlpAnalogGauge.pas',
+  DlpAsyncTaskRunner in '..\units\DlpAsyncTaskRunner.pas',
+  DlpAutoFormBuilder in '..\units\DlpAutoFormBuilder.pas',
+  DlpAutoUpdateManager in '..\units\DlpAutoUpdateManager.pas',
+  DlpCleanArchProjectWizard in '..\units\DlpCleanArchProjectWizard.pas',
+  DlpCodeBenchmarkHarness in '..\units\DlpCodeBenchmarkHarness.pas',
+  DlpComponentTests in '..\units\DlpComponentTests.pas',
+  DlpCRUDOperationsBar in '..\units\DlpCRUDOperationsBar.pas',
+  DlpCryptoVaultStorage in '..\units\DlpCryptoVaultStorage.pas',
+  DlpCustomDBConnector in '..\units\DlpCustomDBConnector.pas',
+  DlpCustomTabBar in '..\units\DlpCustomTabBar.pas',
+  DlpDashboardCard in '..\units\DlpDashboardCard.pas',
+  DlpDashboardCardEditor in '..\units\DlpDashboardCardEditor.pas',
+  DlpDatabaseConnectionPool in '..\units\DlpDatabaseConnectionPool.pas',
+  DlpDataConnectionMonitor in '..\units\DlpDataConnectionMonitor.pas',
+  DlpDataExportPipeline in '..\units\DlpDataExportPipeline.pas',
+  DlpDBBasicControls in '..\units\DlpDBBasicControls.pas',
+  DlpDBLookupTagBox in '..\units\DlpDBLookupTagBox.pas',
+  DlpEmbeddedWebhookServer in '..\units\DlpEmbeddedWebhookServer.pas',
+  DlpEncryptedDataStore in '..\units\DlpEncryptedDataStore.pas',
+  DlpEncryptedZipArchive in '..\units\DlpEncryptedZipArchive.pas',
+  DlpFastPdfReport in '..\units\DlpFastPdfReport.pas',
+  DlpFieldSchemaInspector in '..\units\DlpFieldSchemaInspector.pas',
+  DlpFiscalXmlValidator in '..\units\DlpFiscalXmlValidator.pas',
+  DlpGradientHeader in '..\units\DlpGradientHeader.pas',
+  DlpGradientPropEditor in '..\units\DlpGradientPropEditor.pas',
+  DlpHighDpiThemedPanel in '..\units\DlpHighDpiThemedPanel.pas',
+  DlpIndustrialTankGauge in '..\units\DlpIndustrialTankGauge.pas',
+  DlpIntegrityWatchdog in '..\units\DlpIntegrityWatchdog.pas',
+  DlpJwtSecurityManager in '..\units\DlpJwtSecurityManager.pas',
+  DlpMatrixHeatmap in '..\units\DlpMatrixHeatmap.pas',
+  DlpMqttClientBridge in '..\units\DlpMqttClientBridge.pas',
+  DlpPackageRegister in '..\units\DlpPackageRegister.pas',
+  DlpProductStockIndicator in '..\units\DlpProductStockIndicator.pas',
+  DlpPushNotificationHub in '..\units\DlpPushNotificationHub.pas',
+  DlpRealtimeChartEngine in '..\units\DlpRealtimeChartEngine.pas',
+  DlpReleasePipeline in '..\units\DlpReleasePipeline.pas',
+  DlpRestClientBridge in '..\units\DlpRestClientBridge.pas',
+  DlpSafeLinkedContainer in '..\units\DlpSafeLinkedContainer.pas',
+  DlpSecurityRoleManager in '..\units\DlpSecurityRoleManager.pas',
+  DlpSerialDeviceConnector in '..\units\DlpSerialDeviceConnector.pas',
+  DlpSystemDaemonController in '..\units\DlpSystemDaemonController.pas',
+  DlpSystemMetricsProbe in '..\units\DlpSystemMetricsProbe.pas',
+  DlpTypeHierarchyInspector in '..\units\DlpTypeHierarchyInspector.pas',
+  DlpVectorDonutChart in '..\units\DlpVectorDonutChart.pas',
+  DlpVectorEmbeddingStore in '..\units\DlpVectorEmbeddingStore.pas',
+  DlpWebSocketLiveClient in '..\units\DlpWebSocketLiveClient.pas',
+  DlpWindowsMessageInterceptor in '..\units\DlpWindowsMessageInterceptor.pas';
+
+end.

@@ -1,0 +1,34 @@
+name: CI/CD Lazarus & FPC Multiplataforma
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: Compilação Lazarus LCL (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        lazarus-version: [3.2.0]
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Free Pascal e Lazarus IDE
+        uses: gcarreno/setup-lazarus@v3
+        with:
+          lazarus-version: ${{ matrix.lazarus-version }}
+          include-packages: 'true'
+
+      - name: Compilar Pacote Runtime (50 Módulos)
+        run: lazbuild -B --build-mode=Release Livro1_Lazarus_LCL/code/packages/laz_eng_components_rt.lpk
+
+      - name: Compilar Pacote Design-Time
+        run: lazbuild -B Livro1_Lazarus_LCL/code/packages/laz_eng_components_dt.lpk

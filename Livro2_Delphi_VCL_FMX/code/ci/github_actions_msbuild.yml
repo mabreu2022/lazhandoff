@@ -1,0 +1,36 @@
+name: Delphi CI/CD Pipeline via MSBuild
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build Packages via MSBuild (Win32 & Win64)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Código do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar MSBuild no Path
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Compilar Pacote Runtime Win32
+        run: |
+          msbuild code/packages/DlpComponents_RT.dpk /p:Config=Release /p:Platform=Win32 /t:Build
+
+      - name: Compilar Pacote Runtime Win64
+        run: |
+          msbuild code/packages/DlpComponents_RT.dpk /p:Config=Release /p:Platform=Win64 /t:Build
+
+      - name: Compilar Pacote DesignTime Win32 (IDE Delphi)
+        run: |
+          msbuild code/packages/DlpComponents_DT.dpk /p:Config=Release /p:Platform=Win32 /t:Build
+
+      - name: Executar Testes Automatizados DUnitX
+        run: |
+          msbuild test/DlpTests.dproj /p:Config=Debug /p:Platform=Win32 /t:Build
+          .\bin\Win32\Debug\DlpTests.exe -hideguis -exit:continue

@@ -1,0 +1,522 @@
+/* ==============================================================================
+   BOOK_THEME.CSS: SISTEMA EDITORIAL PROFISSIONAL PARA LIVROS TÉCNICOS EM PDF
+   Padrão: O'Reilly Media / Pragmatic Bookshelf / Addison-Wesley
+   Compatibilidade: Paged Media CSS, Chromium Headless (Edge / Chrome), Pandoc
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* ------------------------------------------------------------------------------
+   CONFIGURAÇÃO DE PÁGINA (PAGED MEDIA)
+   ------------------------------------------------------------------------------ */
+@page {
+  size: A4;
+  margin: 20mm 15mm 20mm 15mm;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 8.5pt;
+    color: #656d76;
+    font-weight: 500;
+  }
+}
+
+/* A primeira página (capa) não deve ter margens de cabeçalho/rodapé */
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+  @top-left { content: none; }
+  @top-right { content: none; }
+}
+
+/* ------------------------------------------------------------------------------
+   CORPO DO DOCUMENTO E TIPOGRAFIA BASE (TEMA CLARO ABSOLUTO)
+   ------------------------------------------------------------------------------ */
+html, body {
+  background-color: #ffffff !important;
+  color: #1f2328 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.68;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: justify;
+  text-justify: inter-word;
+  color: #1f2328;
+}
+
+/* ------------------------------------------------------------------------------
+   ESTRUTURA DE TÍTULOS E QUEBRAS DE PÁGINA
+   ------------------------------------------------------------------------------ */
+
+/* Cada Módulo inicia estritamente em uma nova página */
+h1 {
+  page-break-before: always !important;
+  break-before: page !important;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+  color: #0f3460;
+  font-size: 19pt;
+  font-weight: 800;
+  border-bottom: 3px solid #0f3460;
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: -0.4px;
+}
+
+/* Variante para Livro 1 (Lazarus Blue) */
+.lazarus-theme h1 {
+  color: #005073;
+  border-bottom-color: #005073;
+}
+
+h2 {
+  color: #134074;
+  font-size: 13.5pt;
+  font-weight: 700;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+  letter-spacing: -0.2px;
+}
+
+.lazarus-theme h2 {
+  color: #006699;
+}
+
+h3 {
+  color: #1e293b;
+  font-size: 11pt;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+h4, h5, h6 {
+  color: #334155;
+  font-size: 10pt;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+/* ------------------------------------------------------------------------------
+   CAPA EDITORIAL PROFISSIONAL (PAGE 1)
+   ------------------------------------------------------------------------------ */
+.editorial-cover {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  min-height: 297mm;
+  padding: 35mm 25mm 25mm 25mm;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  page-break-after: always !important;
+  break-after: page !important;
+  border-top: 14px solid #0f3460;
+}
+
+.lazarus-theme .editorial-cover {
+  border-top-color: #005073;
+}
+
+.cover-badge {
+  display: inline-block;
+  background-color: #f1f5f9;
+  color: #0f3460;
+  font-weight: 700;
+  font-size: 9pt;
+  padding: 6px 14px;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 25px;
+}
+
+.lazarus-theme .cover-badge {
+  color: #005073;
+}
+
+.cover-title {
+  font-size: 26pt !important;
+  font-weight: 900 !important;
+  color: #0f3460 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 16px 0 !important;
+  border-bottom: none !important;
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+.lazarus-theme .cover-title {
+  color: #005073 !important;
+}
+
+.cover-subtitle {
+  font-size: 13pt;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  font-weight: 400;
+  max-width: 90%;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 4px;
+  background-color: #0f3460;
+  margin-bottom: 35px;
+}
+
+.lazarus-theme .cover-divider {
+  background-color: #005073;
+}
+
+.cover-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.pillar-chip {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 8.5pt;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.cover-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cover-author {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cover-institution {
+  font-size: 8.5pt;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.cover-meta {
+  text-align: right;
+  font-size: 8.5pt;
+  color: #64748b;
+}
+
+/* Oculta o header nativo do pandoc na visualização editorial */
+#title-block-header {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------------------------
+   BLOCOS DE CÓDIGO FONTE (LIGHT EDITORIAL PASCAL THEME)
+   Fundo limpo #f6f8fa, borda #d0d7de, barra de realce #0969da
+   ------------------------------------------------------------------------------ */
+
+div.sourceCode, pre.sourceCode {
+  margin: 16px 0 !important;
+}
+
+pre {
+  background-color: #f6f8fa !important;
+  color: #1f2328 !important;
+  border: 1px solid #d0d7de !important;
+  border-left: 4px solid #0969da !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+  font-size: 8.5pt !important;
+  line-height: 1.48 !important;
+  margin: 14px 0 16px 0 !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-x: auto !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  box-shadow: none !important;
+}
+
+pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  white-space: pre-wrap !important;
+}
+
+/* Código em linha (inline) */
+code:not(pre code) {
+  background-color: #f6f8fa !important;
+  color: #0f172a !important;
+  padding: 2px 5px !important;
+  border-radius: 4px !important;
+  font-size: 8.5pt !important;
+  border: 1px solid #d0d7de !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+  font-weight: 500 !important;
+}
+
+/* ------------------------------------------------------------------------------
+   DIAGRAMAS ASCII E CAIXAS DE FLUXO (PRE NÃO-CÓDIGO)
+   Mantém alinhamento exato de caracteres com white-space: pre
+   ------------------------------------------------------------------------------ */
+pre:not(.sourceCode):not([class*="language-"]) {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-left: 3px solid #64748b !important;
+  color: #0f172a !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+  font-size: 7.8pt !important;
+  line-height: 1.32 !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+  overflow-x: auto !important;
+  padding: 10px 12px !important;
+  border-radius: 5px !important;
+}
+
+/* ------------------------------------------------------------------------------
+   PALETA DE DESTAQUE SINTÁTICO PARA OBJECT PASCAL (LIGHT HIGH-CONTRAST)
+   ------------------------------------------------------------------------------ */
+
+/* Palavras reservadas: unit, interface, implementation, class, var, begin, end */
+code span.kw, code span.cf {
+  color: #0550ae !important;
+  font-weight: 700 !important;
+}
+
+/* Tipos nativos e classes: TComponent, string, Integer, TColor, TObject */
+code span.dt {
+  color: #953800 !important;
+  font-weight: 600 !important;
+}
+
+/* Strings literais: 'Hello' */
+code span.st, code span.ch, code span.sc {
+  color: #116329 !important;
+  font-weight: 400 !important;
+}
+
+/* Comentários: { ... }, // ..., (* ... *) */
+code span.co, code span.cv, code span.do {
+  color: #57606a !important;
+  font-style: italic !important;
+}
+
+/* Diretivas de compilação: {$mode objfpc}, {$IFDEF} */
+code span.pp {
+  color: #8250df !important;
+  font-weight: 700 !important;
+}
+
+/* Funções e métodos: Create, Destroy, Invalidate */
+code span.fu {
+  color: #8250df !important;
+  font-weight: 600 !important;
+}
+
+/* Números inteiros e hexadecimais: 100, $00FFFFFF */
+code span.dv, code span.bn, code span.fl, code span.cn {
+  color: #0550ae !important;
+  font-weight: 500 !important;
+}
+
+/* Operadores: :=, =, +, -, :, ; */
+code span.op {
+  color: #24292f !important;
+}
+
+/* Alertas e Avisos */
+code span.al {
+  color: #cf222e !important;
+  font-weight: bold !important;
+  background-color: #ffebe9 !important;
+}
+
+/* ------------------------------------------------------------------------------
+   TABELAS TÉCNICAS E COMPARATIVAS
+   ------------------------------------------------------------------------------ */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 18px 0 24px 0 !important;
+  font-size: 8.8pt !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+th {
+  background-color: #0f3460 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  padding: 8px 12px !important;
+  border: 1px solid #0f3460 !important;
+  letter-spacing: 0.2px;
+}
+
+.lazarus-theme th {
+  background-color: #005073 !important;
+  border-color: #005073 !important;
+}
+
+td {
+  padding: 8px 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #1f2328 !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff !important;
+}
+
+/* ------------------------------------------------------------------------------
+   CAIXAS DE NOTAS, AVISOS E ALERTAS (CALLOUTS)
+   ------------------------------------------------------------------------------ */
+blockquote {
+  border-left: 4.5px solid #3b82f6 !important;
+  background-color: #eef2ff !important;
+  color: #1e3a8a !important;
+  padding: 12px 18px !important;
+  margin: 16px 0 !important;
+  border-radius: 0 6px 6px 0 !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  font-size: 9.5pt !important;
+}
+
+blockquote p {
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+blockquote p + p {
+  margin-top: 8px !important;
+}
+
+/* ------------------------------------------------------------------------------
+   SUMÁRIO (TOC)
+   ------------------------------------------------------------------------------ */
+#TOC {
+  page-break-after: always !important;
+  break-after: page !important;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+}
+
+#TOC h2 {
+  border-bottom: 2px solid #0f3460;
+  color: #0f3460;
+  margin-top: 0;
+  font-size: 14pt;
+}
+
+.lazarus-theme #TOC h2 {
+  border-bottom-color: #005073;
+  color: #005073;
+}
+
+#TOC ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#TOC > ul {
+  padding-left: 0;
+}
+
+#TOC li {
+  margin: 5px 0;
+  line-height: 1.45;
+}
+
+#TOC a {
+  color: #0369a1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 9.2pt;
+}
+
+#TOC a:hover {
+  text-decoration: underline;
+  color: #0284c7;
+}
+
+/* ------------------------------------------------------------------------------
+   LINKS E ELEMENTOS GERAIS
+   ------------------------------------------------------------------------------ */
+a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 12px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 24px 0;
+}
+
+/* Impede quebras dentro de imagens e blocos gráficos */
+img, svg {
+  max-width: 100%;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}

@@ -1,0 +1,40 @@
+name: Lazarus Component CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test on ${{ matrix.os }} (${{ matrix.lazarus-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+        lazarus-version: [ '3.4.0', '3.6.0' ]
+
+    steps:
+      - name: Checkout Código do Repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Free Pascal e Lazarus IDE
+        uses: gcarreno/setup-lazarus@v3.3.1
+        with:
+          lazarus-version: ${{ matrix.lazarus-version }}
+          include-packages: 'SQLDB'
+
+      - name: Compilar Pacote Runtime (laz_eng_components_rt.lpk)
+        run: |
+          lazbuild --build-all code/packages/laz_eng_components_rt.lpk
+
+      - name: Compilar Pacote DesignTime (laz_eng_components_dt.lpk)
+        run: |
+          lazbuild --build-all code/packages/laz_eng_components_dt.lpk
+
+      - name: Executar Testes Automatizados com Heaptrc
+        run: |
+          fpc -B -gh -gl -Fu"code/units" -Fu"code/packages" test/test_runner.pas
+          ./test/test_runner --format=plain

@@ -1,0 +1,185 @@
+object FrmMainDemo: TFrmMainDemo
+  Left = 240
+  Height = 720
+  Top = 120
+  Width = 1080
+  Caption = 'Demonstrador Oficial dos 50 Componentes de Engenharia Lazarus & LCL'
+  ClientHeight = 720
+  ClientWidth = 1080
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '3.0.0.3'
+  object PnlTopHeader: TPanel
+    Left = 0
+    Height = 64
+    Top = 0
+    Width = 1080
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 2105376
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 20
+      Height = 25
+      Top = 10
+      Width = 630
+      Caption = 'Coleção de Engenharia Avançada de Componentes para Lazarus & LCL'
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI Semibold'
+      ParentColor = False
+    end
+    object LblSubtitle: TLabel
+      Left = 20
+      Height = 17
+      Top = 38
+      Width = 684
+      Caption = 'Demonstração Interativa em Tempo de Execução dos Componentes Visuais, Industriais, de Segurança e IA'
+      Font.Color = 12632256
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      ParentColor = False
+    end
+  end
+  object PageControlMain: TPageControl
+    Left = 0
+    Height = 476
+    Top = 64
+    Width = 1080
+    ActivePage = TabIndustrial
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    object TabIndustrial: TTabSheet
+      Caption = '1. Instrumentação & Dashboards'
+      ClientHeight = 445
+      ClientWidth = 1072
+      object PnlIndustrialControls: TPanel
+        Left = 0
+        Height = 445
+        Top = 0
+        Width = 1072
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+    end
+    object TabUI: TTabSheet
+      Caption = '2. Contêineres & UI Moderna'
+      ClientHeight = 445
+      ClientWidth = 1072
+      object PnlUIControls: TPanel
+        Left = 0
+        Height = 445
+        Top = 0
+        Width = 1072
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+    end
+    object TabSecurity: TTabSheet
+      Caption = '3. Segurança, Criptografia & Tokens'
+      ClientHeight = 445
+      ClientWidth = 1072
+      object PnlSecurityControls: TPanel
+        Left = 0
+        Height = 445
+        Top = 0
+        Width = 1072
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+    end
+    object TabDiagnostics: TTabSheet
+      Caption = '4. Diagnóstico, RTTI & Benchmarks'
+      ClientHeight = 445
+      ClientWidth = 1072
+      object PnlDiagControls: TPanel
+        Left = 0
+        Height = 445
+        Top = 0
+        Width = 1072
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+    end
+  end
+  object PnlBottomLog: TPanel
+    Left = 0
+    Height = 180
+    Top = 540
+    Width = 1080
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 180
+    ClientWidth = 1080
+    TabOrder = 2
+    object PnlLogHeader: TPanel
+      Left = 0
+      Height = 32
+      Top = 0
+      Width = 1080
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 3355443
+      ClientHeight = 32
+      ClientWidth = 1080
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object LblLogTitle: TLabel
+        Left = 12
+        Height = 17
+        Top = 7
+        Width = 246
+        Caption = 'Console de Eventos e Auditoria em Tempo Real'
+        Font.Color = clWhite
+        Font.Height = -12
+        Font.Name = 'Segoe UI Semibold'
+        ParentColor = False
+      end
+      object BtnClearLog: TButton
+        Left = 980
+        Height = 24
+        Top = 4
+        Width = 88
+        Anchors = [akTop, akRight]
+        Caption = 'Limpar Log'
+        OnClick = BtnClearLogClick
+        TabOrder = 0
+      end
+    end
+    object MemoLog: TMemo
+      Left = 0
+      Height = 148
+      Top = 32
+      Width = 1080
+      Align = alClient
+      Color = 1973790
+      Font.Color = 13948116
+      Font.Height = -12
+      Font.Name = 'Consolas'
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      TabOrder = 1
+    end
+  end
+  object TimerGaugeAnim: TTimer
+    Enabled = True
+    Interval = 50
+    OnTimer = TimerGaugeAnimTimer
+    Left = 976
+    Top = 88
+  end
+end

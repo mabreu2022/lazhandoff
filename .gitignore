@@ -39,3 +39,5 @@ lib/
 *.opt
 *.projusers
 packagefiles.xml
+*.exe
+

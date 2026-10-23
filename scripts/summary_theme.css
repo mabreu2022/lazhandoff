@@ -1,0 +1,308 @@
+/* ==============================================================================
+   SUMMARY_THEME.CSS: SISTEMA EDITORIAL PROFISSIONAL PARA O GUIA DE COMPONENTES
+   Formato: A4 Landscape (Paisagem) para visualização perfeita de tabelas técnicas
+   Compatibilidade: Chromium Headless (Edge / Chrome), Pandoc, Paged Media CSS
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ------------------------------------------------------------------------------
+   CONFIGURAÇÃO DE PÁGINA (A4 LANDSCAPE)
+   ------------------------------------------------------------------------------ */
+@page {
+  size: A4 landscape;
+  margin: 14mm 12mm 14mm 12mm;
+  @bottom-center {
+    content: "Catálogo Técnico dos 50 Componentes Object Pascal  •  Página " counter(page);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 8pt;
+    color: #64748b;
+    font-weight: 500;
+  }
+}
+
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+}
+
+/* ------------------------------------------------------------------------------
+   CORPO E TIPOGRAFIA
+   ------------------------------------------------------------------------------ */
+html, body {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 9pt;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------------------
+   CAPA EDITORIAL EM FORMATO LANDSCAPE
+   ------------------------------------------------------------------------------ */
+.editorial-cover-landscape {
+  width: 297mm;
+  height: 210mm;
+  box-sizing: border-box;
+  padding: 30mm 25mm 25mm 25mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%);
+  page-break-after: always;
+  break-after: page;
+}
+
+.cover-badge-top {
+  display: inline-block;
+  background-color: #0f3460;
+  color: #ffffff;
+  font-size: 9pt;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cover-title-main {
+  font-size: 26pt;
+  font-weight: 900;
+  color: #0f3460;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.6px;
+}
+
+.cover-subtitle-main {
+  font-size: 13pt;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 24px 0;
+  max-width: 90%;
+  font-weight: 400;
+}
+
+.cover-divider-bar {
+  width: 90px;
+  height: 5px;
+  background: linear-gradient(90deg, #0f3460, #005073);
+  margin-bottom: 24px;
+}
+
+.cover-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.chip-item {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 8.5pt;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cover-footer-row {
+  border-top: 1.5px solid #cbd5e1;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.author-title {
+  font-size: 11pt;
+  font-weight: 800;
+  color: #0f3460;
+}
+
+.institution-title {
+  font-size: 9pt;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+.meta-title {
+  text-align: right;
+  font-size: 9pt;
+  color: #64748b;
+}
+
+/* Oculta header pandoc */
+#title-block-header {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------------------------
+   TÍTULOS E CABEÇALHOS
+   ------------------------------------------------------------------------------ */
+h1 {
+  page-break-before: always !important;
+  break-before: page !important;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+  color: #0f3460;
+  font-size: 17pt;
+  font-weight: 800;
+  border-bottom: 2.5px solid #0f3460;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: #134074;
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+h3 {
+  color: #1e293b;
+  font-size: 10.5pt;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* ------------------------------------------------------------------------------
+   TABELAS TÉCNICAS (OTIMIZADAS PARA A4 LANDSCAPE)
+   ------------------------------------------------------------------------------ */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 12px 0 20px 0 !important;
+  font-size: 8.2pt !important;
+  line-height: 1.4 !important;
+}
+
+th {
+  background-color: #0f3460 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  padding: 7px 9px !important;
+  border: 1px solid #0f3460 !important;
+  font-size: 8.4pt !important;
+  letter-spacing: 0.2px;
+}
+
+td {
+  padding: 6px 9px !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  vertical-align: top !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff !important;
+}
+
+tr {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Larguras sugeridas para as colunas da tabela mestra */
+col:nth-child(1) { width: 4% !important; }
+col:nth-child(2) { width: 14% !important; }
+col:nth-child(3) { width: 16% !important; }
+col:nth-child(4) { width: 16% !important; }
+col:nth-child(5) { width: 50% !important; }
+
+table th:nth-child(1), table td:nth-child(1) { width: 4% !important; text-align: center; font-weight: bold; }
+table th:nth-child(2), table td:nth-child(2) { width: 14% !important; font-weight: 600; }
+table th:nth-child(3), table td:nth-child(3) { width: 16% !important; font-family: 'JetBrains Mono', monospace; font-size: 7.8pt; }
+table th:nth-child(4), table td:nth-child(4) { width: 16% !important; font-family: 'JetBrains Mono', monospace; font-size: 7.8pt; }
+table th:nth-child(5), table td:nth-child(5) { width: 50% !important; }
+
+/* ------------------------------------------------------------------------------
+   CÓDIGO E TAGS INLINE
+   ------------------------------------------------------------------------------ */
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+  font-size: 8pt !important;
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0969da !important;
+  padding: 1.5px 5px !important;
+  border-radius: 4px !important;
+}
+
+pre {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-left: 3px solid #0f3460 !important;
+  padding: 8px 12px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 7.8pt !important;
+  line-height: 1.35 !important;
+  border-radius: 4px !important;
+  margin: 10px 0 !important;
+  page-break-inside: avoid !important;
+}
+
+/* ------------------------------------------------------------------------------
+   CAIXAS DE DESTAQUE / ALERTAS
+   ------------------------------------------------------------------------------ */
+blockquote {
+  border-left: 4px solid #0284c7 !important;
+  background-color: #f0f9ff !important;
+  color: #0369a1 !important;
+  padding: 10px 14px !important;
+  margin: 12px 0 !important;
+  border-radius: 0 5px 5px 0 !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  font-size: 8.8pt !important;
+}
+
+blockquote p {
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* ------------------------------------------------------------------------------
+   CARDS DE DOMÍNIO ARQUITETURAL
+   ------------------------------------------------------------------------------ */
+.domain-card {
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.domain-card h3 {
+  margin-top: 0;
+  color: #0f3460;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 4px;
+}

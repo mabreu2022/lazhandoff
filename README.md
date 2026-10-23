@@ -23,6 +23,10 @@ Coleção técnica definitiva e orientada à produção para arquitetos de softw
 * **Foco Técnico:** VCL moderna (*Per-Monitor v2 High-DPI, VCL Styles*), FireMonkey vetorial (*Styled Controls, FMX GPU Canvas*), ToolsAPI profunda (*OTA Interfaces, IDE Notifiers*), RTTI estendida, FastMM5 e concorrência paralela.
 * **Volume Gerado:** [`Livro2_Delphi_Completo.pdf`](Livro2_Delphi_Completo.pdf) (Diagramação Editorial Limpa O'Reilly / Addison-Wesley).
 
+### 📑 Catálogo Técnico & Resumo Executivo dos 50 Componentes (Guia Rápido)
+* **Finalidade:** Ficha técnica isolada contendo a tabela comparativa completa dos 50 componentes (Lazarus e Delphi), mapeamento das unidades fonte, finalidades arquiteturais, cenários reais de aplicação e guia rápido dos 50 projetos de exemplo.
+* **Volume Gerado:** [`Resumo_50_Componentes_Lazarus_Delphi.pdf`](Resumo_50_Componentes_Lazarus_Delphi.pdf) (Diagramação editorial profissional em A4 Paisagem, otimizado para leitura fluida em tela e impressão de referência técnica).
+
 ---
 
 ## 🧭 Tabela Mestra dos 50 Módulos: Guia de Finalidade e Arquitetura

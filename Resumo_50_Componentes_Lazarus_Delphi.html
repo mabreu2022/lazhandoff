@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Engenharia de Software Especializada &amp; Arquitetura RAD" />
+  <meta name="dcterms.date" content="2026-01-01" />
+  <title>Catálogo Técnico e Resumo dos 50 Componentes Object Pascal</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="scripts/summary_theme.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="editorial-cover-landscape">
+  <div>
+    <div class="cover-badge-top">GUIA TÉCNICO RÁPIDO &bull; CATÁLOGO DE REFERÊNCIA EXECUTIVA</div>
+    <h1 class="cover-title-main">Catálogo Técnico &amp; Resumo dos 50 Componentes</h1>
+    <div class="cover-subtitle-main">Guia de Arquitetura, Finalidade e Aplicação Prática dos Componentes Profissionais desenvolvidos para Free Pascal / Lazarus IDE (LCL) e Embarcadero Delphi 12 Athens+ (VCL &amp; FMX).</div>
+    <div class="cover-divider-bar"></div>
+    <div class="cover-chips-container">
+      <span class="chip-item">50 Módulos de Engenharia</span>
+      <span class="chip-item">Free Pascal 3.2+</span>
+      <span class="chip-item">Lazarus 3.x+ (LCL)</span>
+      <span class="chip-item">Delphi 12 Athens+ (VCL &amp; FMX)</span>
+      <span class="chip-item">50 Demos Independentes</span>
+      <span class="chip-item">Tabela Comparativa Completa</span>
+      <span class="chip-item">Licença Open Source MIT</span>
+    </div>
+  </div>
+  <div class="cover-footer-row">
+    <div>
+      <div class="author-title">Engenharia de Software Especializada &amp; Arquitetura RAD</div>
+      <div class="institution-title">Coleção de Engenharia Avançada de Componentes Object Pascal</div>
+    </div>
+    <div class="meta-title">
+      <div><strong>Edição Oficial de Produção</strong></div>
+      <div>Publicação: 2026 &bull; Formato A4 Paisagem</div>
+    </div>
+  </div>
+</div>
+
+<header id="title-block-header">
+<h1 class="title">Catálogo Técnico e Resumo dos 50 Componentes Object Pascal</h1>
+<p class="subtitle">Guia Visual e Arquitetural de Referência Rápida para Lazarus IDE &amp; LCL e Delphi 12 Athens+ (VCL/FMX)</p>
+<p class="author">Engenharia de Software Especializada &amp; Arquitetura RAD</p>
+<p class="date">2026</p>
+</header>
+<h1 data-number="1" id="apresentação-do-catálogo-técnico"><span class="header-section-number">1</span> APRESENTAÇÃO DO CATÁLOGO TÉCNICO</h1>
+<p>Este documento consolida a <strong>ficha técnica, finalidade arquitetural e catálogo analítico dos 50 componentes profissionais</strong> desenvolvidos na obra <em>Engenharia Avançada de Componentes Object Pascal</em>.</p>
+<p>O objetivo deste guia de referência rápida é fornecer a arquitetos de software, consultores e desenvolvedores uma visão panorâmica e imediata sobre o que cada componente faz, quais problemas de engenharia ele resolve, em quais cenários reais aplicá-lo e onde localizar tanto sua unidade fonte quanto seu <strong>projeto de exemplo isolado e compilável</strong>.</p>
+<blockquote>
+<p><strong>💡 Projetos Independentes para Aprendizado Prático:</strong> Cada um dos 50 componentes possui um projeto próprio e totalmente independente localizado nas pastas: * <strong>Lazarus LCL:</strong> <code>lazarus/examples/XX_NomeComponente/</code> (ou <code>Livro1_Lazarus_LCL/code/examples/</code>) * <strong>Delphi VCL/FMX:</strong> <code>delphi/examples/XX_NomeComponente/</code> (ou <code>Livro2_Delphi_VCL_FMX/code/examples/</code>) Cada pasta contém o arquivo de projeto (<code>.lpi</code> / <code>.dproj</code>), formulário funcional (<code>FormMain.pas</code>) e documentação local (<code>README.md</code>).</p>
+</blockquote>
+<hr />
+<h1 data-number="2" id="tabela-mestra-dos-50-componentes-finalidade-e-uso-prático"><span class="header-section-number">2</span> TABELA MESTRA DOS 50 COMPONENTES: FINALIDADE E USO PRÁTICO</h1>
+<p>A tabela a seguir apresenta os 50 módulos técnicos da obra em ordem numérica, mapeando as classes para Lazarus (FPC/LCL) e Delphi 12 (VCL/FMX), suas respectivas unidades de código-fonte e o detalhamento técnico de suas finalidades e aplicações reais:</p>
+<table>
+
+<colgroup>
+<col style="width: 4% !important;" />
+<col style="width: 14% !important;" />
+<col style="width: 16% !important;" />
+<col style="width: 16% !important;" />
+<col style="width: 50% !important;" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Módulo / Domínio</th>
+<th style="text-align: left;">Lazarus (FPC/LCL)</th>
+<th style="text-align: left;">Delphi (VCL/FMX)</th>
+<th style="text-align: left;">Para que serve (Finalidade Principal e Aplicação Prática no Mundo Real)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>01</strong></td>
+<td style="text-align: left;"><strong>Diagnóstico / RTTI</strong></td>
+<td style="text-align: left;"><code>TLazTypeInfoInspector</code><br>↳ <code>LazTypeInfoInspector.pas</code></td>
+<td style="text-align: left;"><code>TDlpTypeHierarchyInspector</code><br>↳ <code>DlpTypeHierarchyInspector.pas</code></td>
+<td style="text-align: left;"><strong>Inspeciona dinamicamente em tempo de execução a árvore de herança de qualquer classe (até TObject) e extrai metadados RTTI completos (propriedades published, métodos, tipos e atributos), gerando relatórios textuais ou em Markdown para auditoria e documentação.</strong><br><br><em>(Cenário Real:</em> Inspecionar formulários, componentes de terceiros e objetos de domínio para validação de metadados em runtime.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>02</strong></td>
+<td style="text-align: left;"><strong>Contêineres Seguros</strong></td>
+<td style="text-align: left;"><code>TLazSafeLinkedPanel</code><br>↳ <code>LazSafeLinkedPanel.pas</code></td>
+<td style="text-align: left;"><code>TDlpSafeLinkedContainer</code><br>↳ <code>DlpSafeLinkedContainer.pas</code></td>
+<td style="text-align: left;"><strong>Contêiner visual com gerenciamento de referências fracas para múltiplos componentes do formulário. Utiliza FreeNotification e Notification(opRemove) para anular ponteiros automaticamente quando um controle associado é destruído, eliminando 100% dos erros de Access Violation.</strong><br><br><em>(Cenário Real:</em> Painéis mestre-detalhe e contêineres que apontam para controles externos sem risco de referências órfãs.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>03</strong></td>
+<td style="text-align: left;"><strong>Persistência / Streaming</strong></td>
+<td style="text-align: left;"><code>TLazBinaryBlobContainer</code><br>↳ <code>LazBinaryBlobContainer.pas</code></td>
+<td style="text-align: left;"><code>TDlpEncryptedDataStore</code><br>↳ <code>DlpEncryptedDataStore.pas</code></td>
+<td style="text-align: left;"><strong>Armazena, comprime (ZLib/Deflate) e serializa arquivos binários, imagens ou documentos diretamente dentro do arquivo de layout (.lfm / .dfm) via DefineProperties, permitindo empacotar recursos embutidos sem depender de arquivos soltos em disco.</strong><br><br><em>(Cenário Real:</em> Embutir templates de relatórios, certificados, schemas ou imagens proprietárias no próprio formulário.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>04</strong></td>
+<td style="text-align: left;"><strong>Sistema / Mensageria</strong></td>
+<td style="text-align: left;"><code>LazAsyncEventHook</code><br>↳ <code>LazAsyncEventHook.pas</code></td>
+<td style="text-align: left;"><code>TDlpWindowsMessageInterceptor</code><br>↳ <code>DlpWindowsMessageInterceptor.pas</code></td>
+<td style="text-align: left;"><strong>Intercepta mensagens de janela do SO em baixo nível (subclassing de WndProc) como movimentação, foco, redimensionamento e teclas globais, despachando eventos assíncronos desacoplados sem bloquear o loop de mensagens da interface.</strong><br><br><em>(Cenário Real:</em> Criar interfaces responsivas com detecção de inatividade de usuário, hotkeys globais e animações de redimensionamento.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>05</strong></td>
+<td style="text-align: left;"><strong>Arquitetura de Pacotes</strong></td>
+<td style="text-align: left;"><code>LazPackageRegister</code><br>↳ <code>LazPackageRegister.pas</code></td>
+<td style="text-align: left;"><code>DlpPackageRegister</code><br>↳ <code>DlpPackageRegister.pas</code></td>
+<td style="text-align: left;"><strong>Centraliza o registro modular de componentes e editores na Tool Palette e Object Inspector, separando rigorosamente o pacote de tempo de execução (Runtime .lpk / .dpk) do pacote de projeto (Design-time .lpk / .dpk) com ícones profissionais.</strong><br><br><em>(Cenário Real:</em> Estruturar e distribuir suítes corporativas de componentes compatíveis com OPM (Lazarus) e GetIt (Delphi).<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>06</strong></td>
+<td style="text-align: left;"><strong>Design-Time / IDEIntf</strong></td>
+<td style="text-align: left;"><code>TLazJsonConfigPropEditor</code><br>↳ <code>LazJsonConfigPropEditor.pas</code></td>
+<td style="text-align: left;"><code>TDlpGradientPropEditor</code><br>↳ <code>DlpGradientPropEditor.pas</code></td>
+<td style="text-align: left;"><strong>Estende o Object Inspector da IDE com janelas de diálogo modais interativas ([…]) e listas suspensas dinâmicas (dropdown paValueList) para edição amigável de tipos complexos, como payloads JSON e gradientes de cores.</strong><br><br><em>(Cenário Real:</em> Edição visual de esquemas de configuração, consultas SQL e strings multilinhas dentro da IDE.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>07</strong></td>
+<td style="text-align: left;"><strong>Design-Time / Verbos</strong></td>
+<td style="text-align: left;"><code>TLazCardViewEditor</code><br>↳ <code>LazCardViewEditor.pas</code></td>
+<td style="text-align: left;"><code>TDlpDashboardCardEditor</code><br>↳ <code>DlpDashboardCardEditor.pas</code></td>
+<td style="text-align: left;"><strong>Editor de componentes que injeta verbos de menu de contexto no clique direito do Form Designer da IDE (‘Adicionar Item’, ‘Trocar Layout’, ‘Verificar Status’) e gerencia a ação executada ao dar duplo-clique sobre o controle.</strong><br><br><em>(Cenário Real:</em> Facilitar a configuração rápida de painéis de cards e assistentes visuais para desenvolvedores na IDE.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>08</strong></td>
+<td style="text-align: left;"><strong>Wizards / ToolsAPI</strong></td>
+<td style="text-align: left;"><code>TLazCleanArchFormWizard</code><br>↳ <code>LazCleanArchFormWizard.pas</code></td>
+<td style="text-align: left;"><code>TDlpCleanArchProjectWizard</code><br>↳ <code>DlpCleanArchProjectWizard.pas</code></td>
+<td style="text-align: left;"><strong>Assistente de projeto (Wizard) integrado à IDE que gera algoritmicamente toda a estrutura de pastas e unidades segundo a Clean Architecture (Domain, UseCases, Repositories e UI Controllers) com código limpo e desacoplado.</strong><br><br><em>(Cenário Real:</em> Acelerar a inicialização de novos microserviços e projetos corporativos com padrões arquiteturais consolidados.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>09</strong></td>
+<td style="text-align: left;"><strong>Instrumentação Leve</strong></td>
+<td style="text-align: left;"><code>TLazAnalogGauge</code><br>↳ <code>LazAnalogGauge.pas</code></td>
+<td style="text-align: left;"><code>TDlpAnalogGauge</code><br>↳ <code>DlpAnalogGauge.pas</code></td>
+<td style="text-align: left;"><strong>Mostrador analógico circular leve (TGraphicControl sem janela de SO) de alta performance a 60 FPS com Double Buffering, agulha vetorial por trigonometria (270°), pivô metálico, zonas coloridas configuráveis e disparo de alarmes ao atingir limites.</strong><br><br><em>(Cenário Real:</em> Velocímetros, manômetros de pressão, termômetros industriais e painéis de telemetria automotiva/hospitalar.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;"><strong>Contêineres Janelados</strong></td>
+<td style="text-align: left;"><code>TLazAccordionContainer</code><br>↳ <code>LazAccordionContainer.pas</code></td>
+<td style="text-align: left;"><code>TDlpAccordionContainer</code><br>↳ <code>DlpAccordionContainer.pas</code></td>
+<td style="text-align: left;"><strong>Painel sanfonado colapsável janelado (TWinControl) com suporte à hospedagem de filhos no designer (csAcceptsControls), animação fluida por timer sem sobrecarga em design-time, acessibilidade total via teclado (Enter/Espaço/Tab) e chevron dinâmico.</strong><br><br><em>(Cenário Real:</em> Agrupamento organizado de seções em telas de cadastro complexas, menus retráteis e configurações avançadas.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;"><strong>Navegação / Abas</strong></td>
+<td style="text-align: left;"><code>TLazCustomTabBar</code><br>↳ <code>LazCustomTabBar.pas</code></td>
+<td style="text-align: left;"><code>TDlpCustomTabBar</code><br>↳ <code>DlpCustomTabBar.pas</code></td>
+<td style="text-align: left;"><strong>Barra de guias e abas modernas estilizadas baseadas em coleções tipadas (TCollection/TCollectionItem), com suporte a badges numéricos de notificação, botões de fechamento individual, scroll horizontal de abas e estados hover/ativo.</strong><br><br><em>(Cenário Real:</em> Navegação de múltiplos documentos (MDI com abas), navegadores internos e painéis de formulários abertos.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: left;"><strong>UI Moderna / High-DPI</strong></td>
+<td style="text-align: left;"><code>TLazHighDpiThemedPanel</code><br>↳ <code>LazHighDpiThemedPanel.pas</code></td>
+<td style="text-align: left;"><code>TDlpHighDpiThemedPanel</code><br>↳ <code>DlpHighDpiThemedPanel.pas</code></td>
+<td style="text-align: left;"><strong>Painel moderno com cantos arredondados, bordas elegantes e sombreamento suave que recalcula automaticamente proporções, margens e espessuras em monitores 4K de alta densidade (Per-Monitor v2 DPI 96 até 288+).</strong><br><br><em>(Cenário Real:</em> Cards de dashboards executivos, caixas de diálogo modais refinadas e superfícies táteis responsivas.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: left;"><strong>Dados / TDataLink</strong></td>
+<td style="text-align: left;"><code>TLazCustomDBConnector</code><br>↳ <code>LazCustomDBConnector.pas</code></td>
+<td style="text-align: left;"><code>TDlpCustomDBConnector</code><br>↳ <code>DlpCustomDBConnector.pas</code></td>
+<td style="text-align: left;"><strong>Componente intermediário DB-Aware que encapsula um TDataLink customizado, sincronizando automaticamente o estado de componentes gráficos com a abertura, fechamento e alteração de dados de qualquer TDataSource/TDataSet.</strong><br><br><em>(Cenário Real:</em> Criar novos controles visuais desacoplados que reagem instantaneamente a mudanças no banco de dados.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: left;"><strong>Controles de Dados</strong></td>
+<td style="text-align: left;"><code>TLazDBBasicControls</code><br>↳ <code>LazDBBasicControls.pas</code></td>
+<td style="text-align: left;"><code>TDlpDBBasicControls</code><br>↳ <code>DlpDBBasicControls.pas</code></td>
+<td style="text-align: left;"><strong>Família de controles básicos DB-Aware (Label, Edit e CheckBox) com binding bidirecional com DataSet, validação automática de tipos, controle estrito de edição/leitura e tratamento de campos nulos.</strong><br><br><em>(Cenário Real:</em> Formulários rápidos de preenchimento e telas de edição com persistência automática no banco.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: left;"><strong>Controles Avançados</strong></td>
+<td style="text-align: left;"><code>TLazDBLookupTagBox</code><br>↳ <code>LazDBLookupTagBox.pas</code></td>
+<td style="text-align: left;"><code>TDlpDBLookupTagBox</code><br>↳ <code>DlpDBLookupTagBox.pas</code></td>
+<td style="text-align: left;"><strong>Caixa de entrada inteligente para seleção múltipla com chips visuais (tags) pesquisáveis a partir de uma tabela de lookup, permitindo adicionar/remover itens e gravando os IDs selecionados como lista ou JSON.</strong><br><br><em>(Cenário Real:</em> Seleção de múltiplos clientes, categorias de produtos, permissões de usuários ou tags de artigos.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: left;"><strong>Telemetria / Banco</strong></td>
+<td style="text-align: left;"><code>TLazDataConnectionMonitor</code><br>↳ <code>LazDataConnectionMonitor.pas</code></td>
+<td style="text-align: left;"><code>TDlpDataConnectionMonitor</code><br>↳ <code>DlpDataConnectionMonitor.pas</code></td>
+<td style="text-align: left;"><strong>Intercepta e audita em tempo real a execução de queries SQL, registrando o tempo de resposta em milissegundos, quantidade de linhas afetadas e disparando alertas para consultas lentas (slow queries).</strong><br><br><em>(Cenário Real:</em> Diagnóstico e tuning de performance de banco de dados em aplicações corporativas de alto tráfego.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: left;"><strong>Design-Time / DragDrop</strong></td>
+<td style="text-align: left;"><code>TLazFieldSchemaInspector</code><br>↳ <code>LazFieldSchemaInspector.pas</code></td>
+<td style="text-align: left;"><code>TDlpFieldSchemaInspector</code><br>↳ <code>DlpFieldSchemaInspector.pas</code></td>
+<td style="text-align: left;"><strong>Lê o dicionário de dados de um DataSet e habilita o arrastar e soltar (drag-and-drop) de colunas diretamente para a tela, gerando automaticamente os labels e componentes de entrada configurados.</strong><br><br><em>(Cenário Real:</em> Acelerar a construção de telas de cadastro permitindo arrastar campos do schema diretamente para o formulário.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: left;"><strong>Geração de Telas</strong></td>
+<td style="text-align: left;"><code>TLazAutoFormBuilder</code><br>↳ <code>LazAutoFormBuilder.pas</code></td>
+<td style="text-align: left;"><code>TDlpAutoFormBuilder</code><br>↳ <code>DlpAutoFormBuilder.pas</code></td>
+<td style="text-align: left;"><strong>Motor generativo que constrói algoritmicamente formulários inteiros em tempo de execução ou de design com base em metadados RTTI ou metadados de banco de dados, posicionando campos e botões com alinhamento perfeito.</strong><br><br><em>(Cenário Real:</em> Sistemas modulares dinâmicos que criam telas sob demanda para tabelas criadas pelo usuário final.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: left;"><strong>Barras de Ação</strong></td>
+<td style="text-align: left;"><code>TLazCRUDOperationsBar</code><br>↳ <code>LazCRUDOperationsBar.pas</code></td>
+<td style="text-align: left;"><code>TDlpCRUDOperationsBar</code><br>↳ <code>DlpCRUDOperationsBar.pas</code></td>
+<td style="text-align: left;"><strong>Barra de ferramentas completa para manutenção de registros (Novo, Editar, Excluir, Gravar, Cancelar, Atualizar, Buscar) que controla automaticamente o estado ativo dos botões com base no modo do DataSet.</strong><br><br><em>(Cenário Real:</em> Padronizar o ciclo visual de operações de cadastro em todos os módulos de sistemas de gestão ERP/CRM.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: left;"><strong>Indicadores Comerciais</strong></td>
+<td style="text-align: left;"><code>TLazProductStockIndicator</code><br>↳ <code>LazProductStockIndicator.pas</code></td>
+<td style="text-align: left;"><code>TDlpProductStockIndicator</code><br>↳ <code>DlpProductStockIndicator.pas</code></td>
+<td style="text-align: left;"><strong>Badge/card gráfico que renderiza o nível atual de estoque, ponto crítico de reposição, barra de capacidade percentual e indicadores de margem de lucro com paletas dinâmicas verde/amarelo/vermelho.</strong><br><br><em>(Cenário Real:</em> Visualização rápida de estoque em pontos de venda (PDV), e-commerce e painéis de logística.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>21</strong></td>
+<td style="text-align: left;"><strong>Concorrência / Threads</strong></td>
+<td style="text-align: left;"><code>TLazAsyncTaskRunner</code><br>↳ <code>LazAsyncTaskRunner.pas</code></td>
+<td style="text-align: left;"><code>TDlpAsyncTaskRunner</code><br>↳ <code>DlpAsyncTaskRunner.pas</code></td>
+<td style="text-align: left;"><strong>Executor assíncrono que processa tarefas demoradas em worker threads de segundo plano com proteção de memória, cancelamento limpo e sincronização segura de resultados com a thread principal sem travar a UI.</strong><br><br><em>(Cenário Real:</em> Cálculos matemáticos pesados, importação de planilhas e processamento de arquivos em lote sem congelar o formulário.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>22</strong></td>
+<td style="text-align: left;"><strong>Comunicação / REST</strong></td>
+<td style="text-align: left;"><code>TLazRestClientBridge</code><br>↳ <code>LazRestClientBridge.pas</code></td>
+<td style="text-align: left;"><code>TDlpRestClientBridge</code><br>↳ <code>DlpRestClientBridge.pas</code></td>
+<td style="text-align: left;"><strong>Cliente HTTP de alta velocidade para consumo de APIs RESTful (GET, POST, PUT, DELETE, PATCH), com suporte a cabeçalhos customizados, autenticação Bearer/Basic, timeouts resilientes e conversão de JSON.</strong><br><br><em>(Cenário Real:</em> Integração de sistemas com gateways de pagamento, plataformas cloud, ERPs online e microsserviços.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>23</strong></td>
+<td style="text-align: left;"><strong>Hardware / Automação</strong></td>
+<td style="text-align: left;"><code>TLazSerialDeviceConnector</code><br>↳ <code>LazSerialDeviceConnector.pas</code></td>
+<td style="text-align: left;"><code>TDlpSerialDeviceConnector</code><br>↳ <code>DlpSerialDeviceConnector.pas</code></td>
+<td style="text-align: left;"><strong>Conector de comunicação bidirecional com portas seriais (RS-232, RS-485 e USB Virtual COM), com buffer circular de alta precisão, detecção de perda de sinal e decodificação automática de pacotes de dados.</strong><br><br><em>(Cenário Real:</em> Leitura de peso em balanças de checkout, impressoras térmicas de cupom fiscal e coletores de dados industriais.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>24</strong></td>
+<td style="text-align: left;"><strong>Qualidade / Testes</strong></td>
+<td style="text-align: left;"><code>LazComponentTests</code><br>↳ <code>LazComponentTests.pas</code></td>
+<td style="text-align: left;"><code>DlpComponentTests</code><br>↳ <code>DlpComponentTests.pas</code></td>
+<td style="text-align: left;"><strong>Estrutura de testes unitários automatizados para validação do ciclo de vida dos componentes, prevenção de memory leaks e análise de estresse sob Heaptrc (FPC) e FastMM5 (Delphi).</strong><br><br><em>(Cenário Real:</em> Garantir qualidade contínua em suítes de componentes antes de sua publicação em ambientes de produção.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>25</strong></td>
+<td style="text-align: left;"><strong>Distribuição / OPM</strong></td>
+<td style="text-align: left;"><code>LazPackageRegister</code><br>↳ <code>LazPackageRegister.pas</code></td>
+<td style="text-align: left;"><code>DlpPackageRegister</code><br>↳ <code>DlpPackageRegister.pas</code></td>
+<td style="text-align: left;"><strong>Mecanismo oficial de empacotamento, registro de metadados e versionamento semântico para distribuição no Online Package Manager (Lazarus) e GetIt Package Manager (Delphi).</strong><br><br><em>(Cenário Real:</em> Publicar pacotes open-source ou comerciais de componentes na comunidade oficial Object Pascal.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>26</strong></td>
+<td style="text-align: left;"><strong>Gráficos de Alta Densidade</strong></td>
+<td style="text-align: left;"><code>TLazRealtimeChartEngine</code><br>↳ <code>LazRealtimeChartEngine.pas</code></td>
+<td style="text-align: left;"><code>TDlpRealtimeChartEngine</code><br>↳ <code>DlpRealtimeChartEngine.pas</code></td>
+<td style="text-align: left;"><strong>Motor de renderização gráfica vetorial para séries temporais contínuas, mantendo buffer circular de alta velocidade para plotar até 100.000 pontos em tempo real com auto-escala e 60 FPS estáveis.</strong><br><br><em>(Cenário Real:</em> Osciloscópios, telemetria de sensores industriais, eletrocardiogramas e monitoramento de cotações financeiras.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>27</strong></td>
+<td style="text-align: left;"><strong>Instrumentação Industrial</strong></td>
+<td style="text-align: left;"><code>TLazIndustrialTankGauge</code><br>↳ <code>LazIndustrialTankGauge.pas</code></td>
+<td style="text-align: left;"><code>TDlpIndustrialTankGauge</code><br>↳ <code>DlpIndustrialTankGauge.pas</code></td>
+<td style="text-align: left;"><strong>Mostrador visual em forma de tanque ou silo com representação realista de fluidos, gradientes térmicos, efeito de ondas na superfície, marcadores numéricos de volume e limites sonoros/visuais de segurança.</strong><br><br><em>(Cenário Real:</em> Controle de nível em usinas de álcool/açúcar, reservatórios químicos, silos agrícolas e postos de combustível.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>28</strong></td>
+<td style="text-align: left;"><strong>Gráficos Vetoriais</strong></td>
+<td style="text-align: left;"><code>TLazVectorDonutChart</code><br>↳ <code>LazVectorDonutChart.pas</code></td>
+<td style="text-align: left;"><code>TDlpVectorDonutChart</code><br>↳ <code>DlpVectorDonutChart.pas</code></td>
+<td style="text-align: left;"><strong>Gráfico de setores estilo Donut/Pizza com cálculo trigonométrico polar de fatias, detecção de clique na fatia individual (hit-testing preciso), realce da fatia selecionada e legendas percentuais automáticas.</strong><br><br><em>(Cenário Real:</em> Dashboards financeiros de composição de receitas, despesas por categoria e distribuição de mercado.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>29</strong></td>
+<td style="text-align: left;"><strong>Visualização de Dados</strong></td>
+<td style="text-align: left;"><code>TLazMatrixHeatmap</code><br>↳ <code>LazMatrixHeatmap.pas</code></td>
+<td style="text-align: left;"><code>TDlpMatrixHeatmap</code><br>↳ <code>DlpMatrixHeatmap.pas</code></td>
+<td style="text-align: left;"><strong>Mapa de calor bidimensional matricial com interpolação contínua de paletas térmicas (azul frio até vermelho quente), suporte a grades de qualquer dimensão e exibição de tooltips com valores exatos por célula.</strong><br><br><em>(Cenário Real:</em> Matrizes de correlação financeira, densidade de acessos por horário e mapas de temperatura de sensores.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>30</strong></td>
+<td style="text-align: left;"><strong>Geração de Documentos</strong></td>
+<td style="text-align: left;"><code>TLazFastPdfReport</code><br>↳ <code>LazFastPdfReport.pas</code></td>
+<td style="text-align: left;"><code>TDlpFastPdfReport</code><br>↳ <code>DlpFastPdfReport.pas</code></td>
+<td style="text-align: left;"><strong>Gerador nativo e ultrarrápido de arquivos PDF em código Pascal puro sem depender de DLLs ou drivers externos, desenhando cabeçalhos, tabelas com quebra de página automática, fontes e linhas.</strong><br><br><em>(Cenário Real:</em> Emissão de pedidos de venda, recibos, faturas e relatórios corporativos diretamente pelo backend ou app desktop.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>31</strong></td>
+<td style="text-align: left;"><strong>Pipelines de Dados</strong></td>
+<td style="text-align: left;"><code>TLazDataExportPipeline</code><br>↳ <code>LazDataExportPipeline.pas</code></td>
+<td style="text-align: left;"><code>TDlpDataExportPipeline</code><br>↳ <code>DlpDataExportPipeline.pas</code></td>
+<td style="text-align: left;"><strong>Pipeline assíncrono de exportação em streaming para múltiplos formatos (CSV, JSON Lines e XML Spreadsheet), consumindo DataSets gigantescos sem inflar a memória RAM e emitindo progresso percentual.</strong><br><br><em>(Cenário Real:</em> Exportação em massa de históricos contábeis, logs de auditoria e bases de clientes para BI.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>32</strong></td>
+<td style="text-align: left;"><strong>Automação Fiscal (DF-e)</strong></td>
+<td style="text-align: left;"><code>TLazFiscalXmlValidator</code><br>↳ <code>LazFiscalXmlValidator.pas</code></td>
+<td style="text-align: left;"><code>TDlpFiscalXmlValidator</code><br>↳ <code>DlpFiscalXmlValidator.pas</code></td>
+<td style="text-align: left;"><strong>Validador e auditor de arquivos XML fiscais brasileiros (NF-e, NFC-e, CT-e, MDF-e), validando o dígito verificador da chave de acesso de 44 dígitos (algoritmo Módulo 11) e a assinatura digital SHA-1.</strong><br><br><em>(Cenário Real:</em> Sistemas de faturamento e mensageria fiscal para validação de notas antes do envio à SEFAZ.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>33</strong></td>
+<td style="text-align: left;"><strong>Compressão &amp; Segurança</strong></td>
+<td style="text-align: left;"><code>TLazEncryptedZipArchive</code><br>↳ <code>LazEncryptedZipArchive.pas</code></td>
+<td style="text-align: left;"><code>TDlpEncryptedZipArchive</code><br>↳ <code>DlpEncryptedZipArchive.pas</code></td>
+<td style="text-align: left;"><strong>Compactação, descompactação e leitura de arquivos ZIP com criptografia de senha conforme o padrão PKWARE, cálculo automático de CRC-32 e suporte a streaming de arquivos direto na memória.</strong><br><br><em>(Cenário Real:</em> Backups protegidos por senha, envio seguro de anexos confidenciais e pacotes de atualização de software.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>34</strong></td>
+<td style="text-align: left;"><strong>Segurança / JWT</strong></td>
+<td style="text-align: left;"><code>TLazJwtSecurityManager</code><br>↳ <code>LazJwtSecurityManager.pas</code></td>
+<td style="text-align: left;"><code>TDlpJwtSecurityManager</code><br>↳ <code>DlpJwtSecurityManager.pas</code></td>
+<td style="text-align: left;"><strong>Emissor, assinador e validador de tokens de autenticação JWT (RFC 7519) com algoritmo HMAC-SHA256, verificação automática de expiração (exp), emissor (iss), claims personalizados e lista de revogação.</strong><br><br><em>(Cenário Real:</em> Autenticação em microsserviços, emissão de sessões para APIs REST e controle de acesso a sistemas web.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>35</strong></td>
+<td style="text-align: left;"><strong>Cofre de Segredos</strong></td>
+<td style="text-align: left;"><code>TLazCryptoVaultStorage</code><br>↳ <code>LazCryptoVaultStorage.pas</code></td>
+<td style="text-align: left;"><code>TDlpCryptoVaultStorage</code><br>↳ <code>DlpCryptoVaultStorage.pas</code></td>
+<td style="text-align: left;"><strong>Cofre em memória para armazenamento ultra-seguro de credenciais, chaves privadas e senhas de banco com criptografia dinâmica, ofuscação XOR e limpeza automática de buffers contra inspeção por dumps de RAM.</strong><br><br><em>(Cenário Real:</em> Armazenamento de chaves mestras e senhas de conexão contra ataques de engenharia reversa e depuração.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>36</strong></td>
+<td style="text-align: left;"><strong>Segurança / RBAC</strong></td>
+<td style="text-align: left;"><code>TLazSecurityRoleManager</code><br>↳ <code>LazSecurityRoleManager.pas</code></td>
+<td style="text-align: left;"><code>TDlpSecurityRoleManager</code><br>↳ <code>DlpSecurityRoleManager.pas</code></td>
+<td style="text-align: left;"><strong>Motor declarativo de permissões baseado em papéis (RBAC). Varre automaticamente os controles do formulário (botões, menus, abas) e ajusta propriedades Visible/Enabled conforme os privilégios do usuário ativo.</strong><br><br><em>(Cenário Real:</em> Controle hierárquico de acesso em sistemas multi-usuários (administrador, gerente, operador, visitante).<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>37</strong></td>
+<td style="text-align: left;"><strong>Auditoria / Anti-Tamper</strong></td>
+<td style="text-align: left;"><code>TLazIntegrityWatchdog</code><br>↳ <code>LazIntegrityWatchdog.pas</code></td>
+<td style="text-align: left;"><code>TDlpIntegrityWatchdog</code><br>↳ <code>DlpIntegrityWatchdog.pas</code></td>
+<td style="text-align: left;"><strong>Auditor de integridade que calcula o checksum criptográfico SHA-256 do próprio executável em tempo de boot e compara com assinaturas esperadas, alertando ou abortando o sistema se detectar adulteração no binário.</strong><br><br><em>(Cenário Real:</em> Prevenção contra cracking, patching binário, injeção de DLLs maliciosas e vírus em sistemas comerciais.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>38</strong></td>
+<td style="text-align: left;"><strong>Mensageria IoT (MQTT)</strong></td>
+<td style="text-align: left;"><code>TLazMqttClientBridge</code><br>↳ <code>LazMqttClientBridge.pas</code></td>
+<td style="text-align: left;"><code>TDlpMqttClientBridge</code><br>↳ <code>DlpMqttClientBridge.pas</code></td>
+<td style="text-align: left;"><strong>Cliente MQTT 3.1.1 leve e assíncrono para publicação e subscrição de tópicos com suporte a QoS 0, 1 e 2, reconexão transparente e processamento de telemetria de sensores industriais e dispositivos embarcados.</strong><br><br><em>(Cenário Real:</em> Comunicação com brokers Mosquitto/HiveMQ para telemetria de dispositivos ESP32, Raspberry Pi e sensores.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>39</strong></td>
+<td style="text-align: left;"><strong>Serviços / Webhooks</strong></td>
+<td style="text-align: left;"><code>TLazEmbeddedWebhookServer</code><br>↳ <code>LazEmbeddedWebhookServer.pas</code></td>
+<td style="text-align: left;"><code>TDlpEmbeddedWebhookServer</code><br>↳ <code>DlpEmbeddedWebhookServer.pas</code></td>
+<td style="text-align: left;"><strong>Micro-servidor HTTP embutido de altíssima velocidade que escuta em uma porta TCP dedicada e recebe notificações de webhooks (JSON/POST), despachando os eventos imediatamente para o aplicativo desktop.</strong><br><br><em>(Cenário Real:</em> Receber notificações de pagamento em tempo real (Mercado Pago, Stripe), eventos de GitHub ou integração de ERPs.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>40</strong></td>
+<td style="text-align: left;"><strong>Comunicação em Tempo Real</strong></td>
+<td style="text-align: left;"><code>TLazWebSocketLiveClient</code><br>↳ <code>LazWebSocketLiveClient.pas</code></td>
+<td style="text-align: left;"><code>TDlpWebSocketLiveClient</code><br>↳ <code>DlpWebSocketLiveClient.pas</code></td>
+<td style="text-align: left;"><strong>Cliente WebSocket de canal contínuo full-duplex (RFC 6455) com suporte a mensagens de texto e binárias, batimento de coração periódico (Ping/Pong) e reconexão automática com backoff exponencial.</strong><br><br><em>(Cenário Real:</em> Chats em tempo real, painéis de cotações financeiras ao vivo e sincronização de dados multiusuário.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>41</strong></td>
+<td style="text-align: left;"><strong>Notificações / Cloud</strong></td>
+<td style="text-align: left;"><code>TLazPushNotificationHub</code><br>↳ <code>LazPushNotificationHub.pas</code></td>
+<td style="text-align: left;"><code>TDlpPushNotificationHub</code><br>↳ <code>DlpPushNotificationHub.pas</code></td>
+<td style="text-align: left;"><strong>Despachante de notificações push centralizado que conecta diretamente com serviços na nuvem (Google Firebase Cloud Messaging v1 e Apple APNs), enviando alertas para smartphones e navegadores.</strong><br><br><em>(Cenário Real:</em> Alertar operadores e clientes no celular sobre vendas, faturas aprovadas ou alarmes críticos de telemetria.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>42</strong></td>
+<td style="text-align: left;"><strong>Inteligência Artificial</strong></td>
+<td style="text-align: left;"><code>TLazAiPromptDispatcher</code><br>↳ <code>LazAiPromptDispatcher.pas</code></td>
+<td style="text-align: left;"><code>TDlpAiPromptDispatcher</code><br>↳ <code>DlpAiPromptDispatcher.pas</code></td>
+<td style="text-align: left;"><strong>Ponte de integração com modelos de linguagem (LLMs locais como Ollama/Llama e APIs como OpenAI/Gemini), suportando envio de prompts estruturados e recepção de tokens gerados em streaming direto para a tela.</strong><br><br><em>(Cenário Real:</em> Assistentes virtuais internos, chatbots de atendimento, geração de textos e resumos automatizados no app.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>43</strong></td>
+<td style="text-align: left;"><strong>Processamento de IA</strong></td>
+<td style="text-align: left;"><code>TLazAiStructuredExtractor</code><br>↳ <code>LazAiStructuredExtractor.pas</code></td>
+<td style="text-align: left;"><code>TDlpAiStructuredExtractor</code><br>↳ <code>DlpAiStructuredExtractor.pas</code></td>
+<td style="text-align: left;"><strong>Parser semântico que higieniza saídas geradas por Inteligência Artificial, extraindo blocos JSON limpos, validando schemas e hidratando automaticamente classes e registros Pascal tipados.</strong><br><br><em>(Cenário Real:</em> Extrair dados cadastrais a partir de e-mails em texto livre, faturas não estruturadas e transcrições de áudio.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>44</strong></td>
+<td style="text-align: left;"><strong>Busca Vetorial / RAG</strong></td>
+<td style="text-align: left;"><code>TLazVectorEmbeddingStore</code><br>↳ <code>LazVectorEmbeddingStore.pas</code></td>
+<td style="text-align: left;"><code>TDlpVectorEmbeddingStore</code><br>↳ <code>DlpVectorEmbeddingStore.pas</code></td>
+<td style="text-align: left;"><strong>Armazenamento em memória de vetores multidimensionais (embeddings) com cálculo ultrarrápido de Similaridade por Cosseno e busca semântica Top-K para arquiteturas de RAG (Retrieval-Augmented Generation).</strong><br><br><em>(Cenário Real:</em> Mecanismo de busca semântica em base de conhecimento, manuais técnicos e sistemas de suporte ao cliente.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>45</strong></td>
+<td style="text-align: left;"><strong>Daemons &amp; Serviços</strong></td>
+<td style="text-align: left;"><code>TLazSystemDaemonController</code><br>↳ <code>LazSystemDaemonController.pas</code></td>
+<td style="text-align: left;"><code>TDlpSystemDaemonController</code><br>↳ <code>DlpSystemDaemonController.pas</code></td>
+<td style="text-align: left;"><strong>Controlador multiplataforma de serviços em segundo plano (Windows Services e Linux Daemons via Systemd), com suporte a instalação, início, parada, pausa e registro de ocorrências em log do SO.</strong><br><br><em>(Cenário Real:</em> Criar e gerenciar servidores headless, coletores de dados e rotinas de backup que rodam como serviço do sistema.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>46</strong></td>
+<td style="text-align: left;"><strong>Sonda de Telemetria</strong></td>
+<td style="text-align: left;"><code>TLazSystemMetricsProbe</code><br>↳ <code>LazSystemMetricsProbe.pas</code></td>
+<td style="text-align: left;"><code>TDlpSystemMetricsProbe</code><br>↳ <code>DlpSystemMetricsProbe.pas</code></td>
+<td style="text-align: left;"><strong>Sonda que monitora em tempo real métricas de hardware e processo: percentual de uso de CPU, memória RAM alocada pelo executável, contagem de threads ativas e descritores de arquivo/handles do SO.</strong><br><br><em>(Cenário Real:</em> Painéis de status de servidores, alertas de esgotamento de memória e diagnósticos de integridade.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>47</strong></td>
+<td style="text-align: left;"><strong>Pool de Conexões</strong></td>
+<td style="text-align: left;"><code>TLazDatabaseConnectionPool</code><br>↳ <code>LazDatabaseConnectionPool.pas</code></td>
+<td style="text-align: left;"><code>TDlpDatabaseConnectionPool</code><br>↳ <code>DlpDatabaseConnectionPool.pas</code></td>
+<td style="text-align: left;"><strong>Gerenciador de pool de conexões com banco de dados SQL (thread-safe), mantendo conexões pré-aquecidas, reciclagem automática por inatividade e prevenção de bloqueios em acessos concorrentes multi-usuário.</strong><br><br><em>(Cenário Real:</em> Servidores de aplicação, APIs REST e sistemas com centenas de requisições simultâneas ao banco de dados.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>48</strong></td>
+<td style="text-align: left;"><strong>Atualizações OTA</strong></td>
+<td style="text-align: left;"><code>TLazAutoUpdateManager</code><br>↳ <code>LazAutoUpdateManager.pas</code></td>
+<td style="text-align: left;"><code>TDlpAutoUpdateManager</code><br>↳ <code>DlpAutoUpdateManager.pas</code></td>
+<td style="text-align: left;"><strong>Motor de atualização automática (OTA - Over-The-Air) que consulta repositórios remotos, realiza download do novo executável, verifica o hash SHA-256 e executa a troca segura com reinício automático da aplicação.</strong><br><br><em>(Cenário Real:</em> Distribuição e atualização silenciosa ou orientada de novas versões de softwares comerciais em clientes.<em>)</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>49</strong></td>
+<td style="text-align: left;"><strong>Micro-benchmarks</strong></td>
+<td style="text-align: left;"><code>TLazCodeBenchmarkHarness</code><br>↳ <code>LazCodeBenchmarkHarness.pas</code></td>
+<td style="text-align: left;"><code>TDlpCodeBenchmarkHarness</code><br>↳ <code>DlpCodeBenchmarkHarness.pas</code></td>
+<td style="text-align: left;"><strong>Harness de micro-medições com precisão de nanossegundos via instruções de CPU (RDTSC / QueryPerformanceCounter), calculando média, desvio padrão e taxa de operações por segundo de trechos de código.</strong><br><br><em>(Cenário Real:</em> Otimização cirúrgica de algoritmos de ordenação, serializadores e rotinas críticas de cálculo.<em>)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>50</strong></td>
+<td style="text-align: left;"><strong>CI/CD &amp; DevOps</strong></td>
+<td style="text-align: left;"><code>LazReleasePipeline</code><br>↳ <code>LazReleasePipeline.pas</code></td>
+<td style="text-align: left;"><code>DlpReleasePipeline</code><br>↳ <code>DlpReleasePipeline.pas</code></td>
+<td style="text-align: left;"><strong>Pipeline automatizado de compilação headless em lote (lazbuild e msbuild), geração de pacotes binários, numeração de versão semântica e publicação automática de releases no GitHub Actions.</strong><br><br><em>(Cenário Real:</em> Automação completa do ciclo de vida de desenvolvimento e entrega contínua (CI/CD) para Object Pascal.<em>)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 data-number="3" id="visão-geral-dos-componentes-agrupados-por-domínio-arquitetural"><span class="header-section-number">3</span> VISÃO GERAL DOS COMPONENTES AGRUPADOS POR DOMÍNIO ARQUITETURAL</h1>
+<p>Para facilitar a consulta e implementação arquitetural em seus projetos, os 50 componentes encontram-se estruturados em 7 grandes domínios de engenharia:</p>
+<h2 data-number="3.1" id="diagnósticos-rtti-extensibilidade-de-design-time-módulos-01-a-08"><span class="header-section-number">3.1</span> 1. 🛡️ Diagnósticos, RTTI &amp; Extensibilidade de Design-Time (Módulos 01 a 08)</h2>
+<ul>
+<li><strong>TLazTypeInfoInspector / TDlpTypeHierarchyInspector (01):</strong> Auditoria profunda de metadados de classe, listagem de métodos e propriedades published para geração de documentação ou serializadores automáticos.</li>
+<li><strong>TLazSafeLinkedPanel / TDlpSafeLinkedContainer (02):</strong> Prevenção de Access Violation através do gerenciamento rigoroso de ponteiros fracos via <code>FreeNotification</code> e <code>opRemove</code>.</li>
+<li><strong>TLazBinaryBlobContainer / TDlpEncryptedDataStore (03):</strong> Serialização e compressão ZLib de arquivos e recursos binários no streaming nativo LFM/DFM via <code>DefineProperties</code>.</li>
+<li><strong>LazAsyncEventHook / TDlpWindowsMessageInterceptor (04):</strong> Subclassing de baixo nível de janelas de SO (<code>WndProc</code>) para captura assíncrona de foco, inatividade e hotkeys.</li>
+<li><strong>LazPackageRegister / DlpPackageRegister (05):</strong> Separação limpa de pacotes Runtime (.lpk/.dpk) e Design-time (.lpk/.dpk) com ícones profissionais para distribuição.</li>
+<li><strong>TLazJsonConfigPropEditor / TDlpGradientPropEditor (06):</strong> Extensão do Object Inspector da IDE com diálogos modais interativos e listas suspensas customizadas.</li>
+<li><strong>TLazCardViewEditor / TDlpDashboardCardEditor (07):</strong> Injeção de verbos de menu de contexto (clique direito no Form Designer) e tratamento de duplo-clique.</li>
+<li><strong>TLazCleanArchFormWizard / TDlpCleanArchProjectWizard (08):</strong> Assistente automatizado de geração de projetos segundo os princípios da Clean Architecture.</li>
+</ul>
+<h2 data-number="3.2" id="dashboards-instrumentação-ui-moderna-módulos-09-a-12-20-26-a-29"><span class="header-section-number">3.2</span> 2. 📊 Dashboards, Instrumentação &amp; UI Moderna (Módulos 09 a 12, 20, 26 a 29)</h2>
+<ul>
+<li><strong>TLazAnalogGauge / TDlpAnalogGauge (09):</strong> Mostrador analógico circular vetorial leve a 60 FPS com Double Buffering, agulha trigonométrica e zonas de alarme.</li>
+<li><strong>TLazAccordionContainer / TDlpAccordionContainer (10):</strong> Painel sanfonado colapsável janelado com suporte nativo a hospedar filhos no designer e navegação por teclado.</li>
+<li><strong>TLazCustomTabBar / TDlpCustomTabBar (11):</strong> Barra de abas tipadas com coleções dinâmicas, badges numéricos de alerta e botão individual de fechamento.</li>
+<li><strong>TLazHighDpiThemedPanel / TDlpHighDpiThemedPanel (12):</strong> Painel responsivo adaptável a resoluções 4K High-DPI (96 a 288+ DPI) com bordas e cantos arredondados.</li>
+<li><strong>TLazProductStockIndicator / TDlpProductStockIndicator (20):</strong> Card comercial com renderização gráfica de estoque, ponto de ressuprimento e cálculo de margem/markup.</li>
+<li><strong>TLazRealtimeChartEngine / TDlpRealtimeChartEngine (26):</strong> Motor gráfico para séries temporais contínuas de até 100.000 pontos em tempo real com auto-escala.</li>
+<li><strong>TLazIndustrialTankGauge / TDlpIndustrialTankGauge (27):</strong> Medidor vertical de nível de fluidos e silos com gradiente térmico e marcadores volumétricos.</li>
+<li><strong>TLazVectorDonutChart / TDlpVectorDonutChart (28):</strong> Gráfico vetorial de rosca/pizza com animação de varredura, fatias coloridas e cálculo percentual.</li>
+<li><strong>TLazMatrixHeatmap / TDlpMatrixHeatmap (29):</strong> Mapa de calor bidimensional para análise de dados multidimensionais com interpolação de paletas fria/quente.</li>
+</ul>
+<h2 data-number="3.3" id="arquitetura-db-aware-manipulação-de-dados-módulos-13-a-19-47"><span class="header-section-number">3.3</span> 3. 💾 Arquitetura DB-Aware &amp; Manipulação de Dados (Módulos 13 a 19, 47)</h2>
+<ul>
+<li><strong>TLazCustomDBConnector / TDlpCustomDBConnector (13):</strong> Encapsulamento da ponte reativa <code>TDataLink</code> para sincronização de controles com <code>TDataSource</code>.</li>
+<li><strong>TLazDBBasicControls / TDlpDBBasicControls (14):</strong> Conjunto básico de controles DB-Aware (Label, Edit, CheckBox) com binding bidirecional com DataSet.</li>
+<li><strong>TLazDBLookupTagBox / TDlpDBLookupTagBox (15):</strong> Seleção múltipla visual através de chips/tags pesquisáveis a partir de tabelas de consulta.</li>
+<li><strong>TLazDataConnectionMonitor / TDlpDataConnectionMonitor (16):</strong> Telemetria em tempo real de execução de queries SQL com alerta para slow queries.</li>
+<li><strong>TLazFieldSchemaInspector / TDlpFieldSchemaInspector (17):</strong> Dicionário de dados interativo com drag-and-drop de campos para a tela do formulário.</li>
+<li><strong>TLazAutoFormBuilder / TDlpAutoFormBuilder (18):</strong> Motor de geração algorítmica de telas e cadastros completos a partir de metadados RTTI.</li>
+<li><strong>TLazCRUDOperationsBar / TDlpCRUDOperationsBar (19):</strong> Barra de ferramentas para manutenção de registros (Novo, Editar, Gravar, Excluir, Navegar) sincronizada com o estado do DataSet.</li>
+<li><strong>TLazDatabaseConnectionPool / TDlpDatabaseConnectionPool (47):</strong> Pool gerenciado de conexões de banco de dados com reciclagem ativa e proteção multithread.</li>
+</ul>
+<h2 data-number="3.4" id="concorrência-hardware-comunicação-industrial-módulos-21-a-23-38-a-41-45-46"><span class="header-section-number">3.4</span> 4. ⚡ Concorrência, Hardware &amp; Comunicação Industrial (Módulos 21 a 23, 38 a 41, 45, 46)</h2>
+<ul>
+<li><strong>TLazAsyncTaskRunner / TDlpAsyncTaskRunner (21):</strong> Processamento em worker threads de segundo plano com cancelamento limpo e sincronização segura com a UI.</li>
+<li><strong>TLazRestClientBridge / TDlpRestClientBridge (22):</strong> Cliente HTTP assíncrono para consumo de endpoints RESTful com serialização JSON e autenticação.</li>
+<li><strong>TLazSerialDeviceConnector / TDlpSerialDeviceConnector (23):</strong> Comunicação bidirecional com portas seriais (RS-232/RS-485/USB Virtual COM) com buffer circular.</li>
+<li><strong>TLazMqttClientBridge / TDlpMqttClientBridge (38):</strong> Ponte de mensageria IoT via protocolo MQTT (Publish/Subscribe) para automação e sensores.</li>
+<li><strong>TLazEmbeddedWebhookServer / TDlpEmbeddedWebhookServer (39):</strong> Servidor HTTP embutido para recepção de webhooks de pagamento (Pix, Stripe) e integrações externas.</li>
+<li><strong>TLazWebSocketLiveClient / TDlpWebSocketLiveClient (40):</strong> Cliente WebSocket duplex de baixa latência para dashboards operacionais em tempo real.</li>
+<li><strong>TLazPushNotificationHub / TDlpPushNotificationHub (41):</strong> Central de despacho de notificações push (FCM, Apple APNs) com tratamento de fila de envio.</li>
+<li><strong>TLazSystemDaemonController / TDlpSystemDaemonController (45):</strong> Gerenciador de serviços de sistema em segundo plano (Windows Services e Linux Systemd daemons).</li>
+<li><strong>TLazSystemMetricsProbe / TDlpSystemMetricsProbe (46):</strong> Sonda de telemetria de hardware (consumo de CPU, memória RAM, taxa de I/O de disco e rede).</li>
+</ul>
+<h2 data-number="3.5" id="criptografia-segurança-documentos-fiscais-módulos-32-a-37"><span class="header-section-number">3.5</span> 5. 🔒 Criptografia, Segurança &amp; Documentos Fiscais (Módulos 32 a 37)</h2>
+<ul>
+<li><strong>TLazFiscalXmlValidator / TDlpFiscalXmlValidator (32):</strong> Validador oficial de documentos fiscais eletrônicos (NF-e, NFC-e) com validação de schemas XSD e cálculo de dígito verificador.</li>
+<li><strong>TLazEncryptedZipArchive / TDlpEncryptedZipArchive (33):</strong> Compactador e descompactador ZIP com cifra criptográfica AES-256 e proteção por senha em memória.</li>
+<li><strong>TLazJwtSecurityManager / TDlpJwtSecurityManager (34):</strong> Gerador e validador de tokens JWT (JSON Web Tokens) com assinatura HMAC-SHA256 e controle estrito de expiração.</li>
+<li><strong>TLazCryptoVaultStorage / TDlpCryptoVaultStorage (35):</strong> Cofre seguro em memória protegida com criptografia simétrica para chaves de API, senhas e certificados.</li>
+<li><strong>TLazSecurityRoleManager / TDlpSecurityRoleManager (36):</strong> Sistema de controle de acesso baseado em papéis (RBAC - Role-Based Access Control) para menus e ações.</li>
+<li><strong>TLazIntegrityWatchdog / TDlpIntegrityWatchdog (37):</strong> Sentinela anti-tampering que monitora hashes SHA-256 de binários e bibliotecas para prevenir injeções de código.</li>
+</ul>
+<h2 data-number="3.6" id="inteligência-artificial-vetores-automação-módulos-42-a-44-48"><span class="header-section-number">3.6</span> 6. 🧠 Inteligência Artificial, Vetores &amp; Automação (Módulos 42 a 44, 48)</h2>
+<ul>
+<li><strong>TLazAiPromptDispatcher / TDlpAiPromptDispatcher (42):</strong> Despachante resiliente de requisições para LLMs (OpenAI, Anthropic Claude, Google Gemini) com streaming e retry exponencial.</li>
+<li><strong>TLazAiStructuredExtractor / TDlpAiStructuredExtractor (43):</strong> Extrator de dados que força respostas de IA no formato estrito de JSON Schemas mapeados para registros Pascal.</li>
+<li><strong>TLazVectorEmbeddingStore / TDlpVectorEmbeddingStore (44):</strong> Banco de dados vetorial em memória para busca semântica por similaridade de cosseno de embeddings.</li>
+<li><strong>TLazAutoUpdateManager / TDlpAutoUpdateManager (48):</strong> Gerenciador de auto-atualização de software com download assíncrono, verificação de integridade e reinício transparente.</li>
+</ul>
+<h2 data-number="3.7" id="qualidade-testes-benchmarks-cicd-módulos-24-25-30-31-49-50"><span class="header-section-number">3.7</span> 7. 🚀 Qualidade, Testes, Benchmarks &amp; CI/CD (Módulos 24, 25, 30, 31, 49, 50)</h2>
+<ul>
+<li><strong>LazComponentTests / DlpComponentTests (24):</strong> Suíte de testes automatizados para validação do ciclo de vida dos componentes e prevenção de memory leaks.</li>
+<li><strong>LazPackageRegister / DlpPackageRegister (25):</strong> Estrutura de empacotamento oficial para submissão no Online Package Manager (OPM) e GetIt.</li>
+<li><strong>TLazFastPdfReport / TDlpFastPdfReport (30):</strong> Gerador nativo e ultrarrápido de relatórios em PDF sem dependência de DLLs externas, com cabeçalhos e paginação.</li>
+<li><strong>TLazDataExportPipeline / TDlpDataExportPipeline (31):</strong> Pipeline de exportação de dados em lote para múltiplos formatos (CSV, JSON, XML e XLSX).</li>
+<li><strong>TLazCodeBenchmarkHarness / TDlpCodeBenchmarkHarness (49):</strong> Harness de micro-benchmarks em nanossegundos com medição estatística (média, desvio padrão, min/max).</li>
+<li><strong>LazReleasePipeline / DlpReleasePipeline (50):</strong> Automação do pipeline de compilação em lote (headless lazbuild/msbuild) e publicação automática no GitHub Actions.</li>
+</ul>
+<hr />
+<h1 data-number="4" id="guia-rápido-de-instalação-e-execução-dos-50-projetos-de-exemplo"><span class="header-section-number">4</span> GUIA RÁPIDO DE INSTALAÇÃO E EXECUÇÃO DOS 50 PROJETOS DE EXEMPLO</h1>
+<p>Todos os exemplos da obra estão disponíveis no repositório com código-fonte integral:</p>
+<h3 data-number="4.0.1" id="como-abrir-e-executar-um-exemplo-no-lazarus-ide"><span class="header-section-number">4.0.1</span> 1. Como Abrir e Executar um Exemplo no Lazarus IDE:</h3>
+<ol type="1">
+<li><p>Inicie o Lazarus 3.x+.</p></li>
+<li><p>Acesse o menu <strong>Project</strong> <span class="math inline"><em>i</em><em>g</em><em>h</em><em>t</em><em>a</em><em>r</em><em>r</em><em>o</em><em>w</em></span> <strong>Open Project…</strong></p></li>
+<li><p>Navegue até a pasta do componente desejado dentro de: <code>lazarus/examples/XX_NomeComponente/Demo_XX_NomeComponente.lpi</code></p></li>
+<li><p>Pressione <strong>F9</strong> para compilar e executar o projeto imediatamente.</p></li>
+<li><p><em>Opcional via linha de comando:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lazbuild</span> lazarus/examples/09_AnalogGauge/Demo_09_LazAnalogGauge.lpi</span></code></pre></div></li>
+</ol>
+<h3 data-number="4.0.2" id="como-abrir-e-executar-um-exemplo-no-delphi-12"><span class="header-section-number">4.0.2</span> 2. Como Abrir e Executar um Exemplo no Delphi 12:</h3>
+<ol type="1">
+<li><p>Inicie o Embarcadero Delphi 12 Athens+.</p></li>
+<li><p>Acesse o menu <strong>File</strong> <span class="math inline"><em>i</em><em>g</em><em>h</em><em>t</em><em>a</em><em>r</em><em>r</em><em>o</em><em>w</em></span> <strong>Open Project…</strong></p></li>
+<li><p>Navegue até a pasta do componente desejado dentro de: <code>delphi/examples/XX_NomeComponente/Demo_XX_NomeComponente.dproj</code></p></li>
+<li><p>Pressione <strong>F9</strong> para compilar e executar.</p></li>
+<li><p><em>Opcional via linha de comando (MSBuild):</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">msbuild</span> delphi/examples/21_AsyncTaskRunner/Demo_21_DlpAsyncTaskRunner.dproj</span></code></pre></div></li>
+</ol>
+<hr />
+<p><em>Catálogo Técnico e Guia de Referência dos 50 Componentes Object Pascal • Edição 2026</em></p>
+</body>
+</html>

@@ -156,6 +156,13 @@ if (Test-Path $DlpPdf) {
     Write-Error "Falha ao gerar PDF do Livro 2."
 }
 
+# ------------------------------------------------------------------------------
+# 3. GUIA RESUMO DOS 50 COMPONENTES (A4 LANDSCAPE)
+# ------------------------------------------------------------------------------
+Write-Host "[3/3] Processando Catálogo e Resumo dos 50 Componentes (A4 Landscape)..." -ForegroundColor Green
+$SummaryScript = Join-Path $RootDir "scripts\build_summary_pdf.js"
+& node $SummaryScript
+
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "LIVROS COMPILADOS COM SUCESSO NO PADRÃO EDITORIAL PROFISSIONAL!" -ForegroundColor Yellow
+Write-Host "TODOS OS LIVROS E CATÁLOGO TÉCNICO GERADOS COM SUCESSO!" -ForegroundColor Yellow
 Write-Host "==========================================================" -ForegroundColor Cyan

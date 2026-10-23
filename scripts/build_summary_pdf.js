@@ -181,7 +181,7 @@ const coverHtml = `
 <div class="editorial-cover-landscape">
   <div>
     <div class="cover-badge-top">GUIA TÉCNICO RÁPIDO &bull; CATÁLOGO DE REFERÊNCIA EXECUTIVA</div>
-    <h1 class="cover-title-main">Catálogo Técnico &amp; Resumo dos 50 Componentes</h1>
+    <div class="cover-title-main">Catálogo Técnico &amp; Resumo dos 50 Componentes</div>
     <div class="cover-subtitle-main">Guia de Arquitetura, Finalidade e Aplicação Prática dos Componentes Profissionais desenvolvidos para Free Pascal / Lazarus IDE (LCL) e Embarcadero Delphi 12 Athens+ (VCL &amp; FMX).</div>
     <div class="cover-divider-bar"></div>
     <div class="cover-chips-container">

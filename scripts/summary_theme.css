@@ -22,7 +22,6 @@
 }
 
 @page :first {
-  margin: 0;
   @bottom-center { content: none; }
 }
 
@@ -41,64 +40,78 @@ html, body {
 }
 
 /* ------------------------------------------------------------------------------
-   CAPA EDITORIAL EM FORMATO LANDSCAPE
+   CAPA EDITORIAL EM FORMATO LANDSCAPE (STANDARD BLOCK)
    ------------------------------------------------------------------------------ */
 .editorial-cover-landscape {
-  width: 297mm;
-  height: 210mm;
   box-sizing: border-box;
-  padding: 30mm 25mm 25mm 25mm;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%);
-  page-break-after: always;
-  break-after: page;
+  width: 100%;
+  padding: 12mm 14mm 10mm 14mm;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 60%, #f1f5f9 100%);
+  border: 1.5px solid #cbd5e1;
+  border-top: 10px solid #0f3460;
+  border-radius: 8px;
+  page-break-after: always !important;
+  break-after: page !important;
+  display: block !important;
+}
+
+.cover-page-break {
+  display: block !important;
+  clear: both !important;
+  page-break-after: always !important;
+  break-after: page !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .cover-badge-top {
   display: inline-block;
   background-color: #0f3460;
   color: #ffffff;
-  font-size: 9pt;
+  font-size: 8.5pt;
   font-weight: 700;
-  padding: 5px 14px;
+  padding: 4px 12px;
   border-radius: 4px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .cover-title-main {
-  font-size: 26pt;
-  font-weight: 900;
-  color: #0f3460;
-  line-height: 1.15;
-  margin: 0 0 12px 0;
-  letter-spacing: -0.6px;
+  font-size: 24pt !important;
+  font-weight: 900 !important;
+  color: #0f3460 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 10px 0 !important;
+  border-bottom: none !important;
+  letter-spacing: -0.5px;
+  page-break-before: avoid !important;
+  break-before: avoid !important;
 }
 
 .cover-subtitle-main {
-  font-size: 13pt;
+  font-size: 11.5pt;
   color: #475569;
   line-height: 1.45;
-  margin: 0 0 24px 0;
-  max-width: 90%;
+  margin: 0 0 18px 0;
+  max-width: 95%;
   font-weight: 400;
 }
 
 .cover-divider-bar {
-  width: 90px;
-  height: 5px;
+  width: 80px;
+  height: 4px;
   background: linear-gradient(90deg, #0f3460, #005073);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .cover-chips-container {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .chip-item {
@@ -114,7 +127,8 @@ html, body {
 
 .cover-footer-row {
   border-top: 1.5px solid #cbd5e1;
-  padding-top: 18px;
+  padding-top: 16px;
+  margin-top: 28px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

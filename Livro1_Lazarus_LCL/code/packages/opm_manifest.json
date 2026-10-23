@@ -25,7 +25,7 @@
   "Packages": [
     {
       "Name": "laz_eng_components_rt.lpk",
-      "Type": "RunTimeOnly"
+      "Type": "RunAndDesignTime"
     },
     {
       "Name": "laz_eng_components_dt.lpk",

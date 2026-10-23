@@ -19,13 +19,19 @@ uses
   LazFastPdfReport, LazFieldSchemaInspector, LazFiscalXmlValidator, 
   LazHighDpiThemedPanel, LazIndustrialTankGauge, LazIntegrityWatchdog, 
   LazJsonConfig, LazJsonConfigPropEditor, LazJwtSecurityManager, 
-  LazMatrixHeatmap, LazMqttClientBridge, LazPackageRegister, 
-  LazProductStockIndicator, LazPushNotificationHub, LazRealtimeChartEngine, 
-  LazReleasePipeline, LazRestClientBridge, LazSafeLinkedPanel, 
-  LazSecurityRoleManager, LazSerialDeviceConnector, LazSystemDaemonController, 
-  LazSystemMetricsProbe, LazTypeInfoInspector, LazVectorDonutChart, 
-  LazVectorEmbeddingStore, LazWebSocketLiveClient;
+  LazMatrixHeatmap, LazMqttClientBridge, LazProductStockIndicator, 
+  LazPushNotificationHub, LazRealtimeChartEngine, LazReleasePipeline, 
+  LazRestClientBridge, LazSafeLinkedPanel, LazSecurityRoleManager, 
+  LazSerialDeviceConnector, LazSystemDaemonController, LazSystemMetricsProbe, 
+  LazTypeInfoInspector, LazVectorDonutChart, LazVectorEmbeddingStore, 
+  LazWebSocketLiveClient, LazarusPackageIntf;
 
 implementation
 
+procedure Register;
+begin
+end;
+
+initialization
+  RegisterPackage('laz_eng_components_rt', @Register);
 end.

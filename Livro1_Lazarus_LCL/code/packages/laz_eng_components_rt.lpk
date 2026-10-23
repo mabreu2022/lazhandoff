@@ -3,7 +3,7 @@
   <Package Version="5">
     <PathDelim Value="\"/>
     <Name Value="laz_eng_components_rt"/>
-    <Type Value="RunTimeOnly"/>
+    <Type Value="RunAndDesignTime"/>
     <Author Value="Engenharia de Software Especializada &amp; Arquitetura RAD"/>
     <CompilerOptions>
       <Version Value="11"/>
@@ -32,7 +32,7 @@
     <Description Value="Pacote de Runtime da Coleção Completa de Engenharia Avançada de Componentes para Lazarus (50 Módulos)"/>
     <License Value="MIT"/>
     <Version Major="1" Minor="0" Release="0" Build="0"/>
-    <Files Count="51">
+    <Files Count="50">
       <Item1>
         <Filename Value="..\units\LazAccordionContainer.pas"/>
         <UnitName Value="LazAccordionContainer"/>
@@ -135,7 +135,7 @@
       </Item25>
       <Item26>
         <Filename Value="..\units\LazFastPdfReport.pas"/>
-        <UnitName Value="LazFastPdfReport"/>
+        <UnitName Value="LazFastPdfReportBuilder"/>
       </Item26>
       <Item27>
         <Filename Value="..\units\LazFieldSchemaInspector.pas"/>
@@ -178,67 +178,63 @@
         <UnitName Value="LazMqttClientBridge"/>
       </Item36>
       <Item37>
-        <Filename Value="..\units\LazPackageRegister.pas"/>
-        <UnitName Value="LazPackageRegister"/>
-      </Item37>
-      <Item38>
         <Filename Value="..\units\LazProductStockIndicator.pas"/>
         <UnitName Value="LazProductStockIndicator"/>
-      </Item38>
-      <Item39>
+      </Item37>
+      <Item38>
         <Filename Value="..\units\LazPushNotificationHub.pas"/>
         <UnitName Value="LazPushNotificationHub"/>
-      </Item39>
-      <Item40>
+      </Item38>
+      <Item39>
         <Filename Value="..\units\LazRealtimeChartEngine.pas"/>
         <UnitName Value="LazRealtimeChartEngine"/>
-      </Item40>
-      <Item41>
+      </Item39>
+      <Item40>
         <Filename Value="..\units\LazReleasePipeline.pas"/>
         <UnitName Value="LazReleasePipeline"/>
-      </Item41>
-      <Item42>
+      </Item40>
+      <Item41>
         <Filename Value="..\units\LazRestClientBridge.pas"/>
         <UnitName Value="LazRestClientBridge"/>
-      </Item42>
-      <Item43>
+      </Item41>
+      <Item42>
         <Filename Value="..\units\LazSafeLinkedPanel.pas"/>
         <UnitName Value="LazSafeLinkedPanel"/>
-      </Item43>
-      <Item44>
+      </Item42>
+      <Item43>
         <Filename Value="..\units\LazSecurityRoleManager.pas"/>
         <UnitName Value="LazSecurityRoleManager"/>
-      </Item44>
-      <Item45>
+      </Item43>
+      <Item44>
         <Filename Value="..\units\LazSerialDeviceConnector.pas"/>
         <UnitName Value="LazSerialDeviceConnector"/>
-      </Item45>
-      <Item46>
+      </Item44>
+      <Item45>
         <Filename Value="..\units\LazSystemDaemonController.pas"/>
         <UnitName Value="LazSystemDaemonController"/>
-      </Item46>
-      <Item47>
+      </Item45>
+      <Item46>
         <Filename Value="..\units\LazSystemMetricsProbe.pas"/>
         <UnitName Value="LazSystemMetricsProbe"/>
-      </Item47>
-      <Item48>
+      </Item46>
+      <Item47>
         <Filename Value="..\units\LazTypeInfoInspector.pas"/>
         <UnitName Value="LazTypeInfoInspector"/>
-      </Item48>
-      <Item49>
+      </Item47>
+      <Item48>
         <Filename Value="..\units\LazVectorDonutChart.pas"/>
         <UnitName Value="LazVectorDonutChart"/>
-      </Item49>
-      <Item50>
+      </Item48>
+      <Item49>
         <Filename Value="..\units\LazVectorEmbeddingStore.pas"/>
         <UnitName Value="LazVectorEmbeddingStore"/>
-      </Item50>
-      <Item51>
+      </Item49>
+      <Item50>
         <Filename Value="..\units\LazWebSocketLiveClient.pas"/>
         <UnitName Value="LazWebSocketLiveClient"/>
-      </Item51>
+      </Item50>
     </Files>
-    <RequiredPkgs Count="3">
+    <RequiredPkgs Count="4">
       <Item1>
         <PackageName Value="LCL"/>
       </Item1>
@@ -248,6 +244,9 @@
       <Item3>
         <PackageName Value="SQLDBLaz"/>
       </Item3>
+      <Item4>
+        <PackageName Value="IDEIntf"/>
+      </Item4>
     </RequiredPkgs>
     <UsageOptions>
       <UnitPath Value="$(PkgOutDir)"/>

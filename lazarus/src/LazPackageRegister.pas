@@ -128,9 +128,6 @@ begin
 end;
 
 initialization
-  { Inicialização opcional de recursos de ícones (.lrs) compilados via lazres }
-  {$IFDEF HAS_LRS_ICONS}
   {$I laz_components_icons.lrs}
-  {$ENDIF}
 
 end.

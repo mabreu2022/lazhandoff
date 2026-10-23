@@ -43,7 +43,7 @@ implementation
 procedure Register;
 begin
   { Registra o assistente de novo item no menu 'File -> New...' do Lazarus }
-  RegisterProjectFileDescriptor(TLazCleanArchFormDescriptor.Create, 'Engenharia Lazarus');
+  RegisterProjectFileDescriptor(TLazCleanArchFormDescriptor.Create);
 end;
 
 { TLazCleanArchFormDescriptor }

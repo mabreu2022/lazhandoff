@@ -84,7 +84,9 @@ Este livro foi concebido como um compêndio de engenharia de software de alto n�
 
 # GUIA COMPLETO DE FINALIDADE DOS 50 COMPONENTES
 
-A tabela a seguir cataloga e descreve exaustivamente os **50 componentes profissionais** implementados na obra, detalhando a finalidade técnica de cada classe, sua unidade de código-fonte, a categoria na paleta de componentes e seu cenário prático de aplicação no mundo real:
+A tabela a seguir cataloga e descreve exaustivamente os **50 componentes profissionais** implementados na obra, detalhando a finalidade técnica de cada classe, sua unidade de código-fonte, a categoria na paleta de componentes e seu cenário prático de aplicação no mundo real.
+
+> **Didática e Aprendizado Prático Isolado:** Além dos pacotes integrados e do dashboard de demonstração unificado, **cada um dos 50 componentes possui sua própria pasta de projeto independente** em `code/examples/` (espelhada também na raiz em `delphi/examples/`). Cada pasta contém seu próprio arquivo de projeto (`.dproj`), formulário de teste funcional (`FormMain.pas`, `FormMain.dfm`) e `README.md` explicativo para compilação e estudo individual focado, permitindo abrir, inspecionar e rodar cada controle isoladamente.
 
 | Módulo | Componente (Classe) | Unidade Fonte (.pas) | Categoria / Paleta | Para que serve (Finalidade Principal e Uso Real) |
 | :---: | :--- | :--- | :---: | :--- |

@@ -1,0 +1,117 @@
+object FrmMain: TFrmMain
+  Left = 300
+  Height = 600
+  Top = 150
+  Width = 800
+  Caption = 'Módulo 23: Demonstração de TLazSerialDeviceConnector'
+  ClientHeight = 600
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '3.0.0.3'
+  object PnlHeader: TPanel
+    Left = 0
+    Height = 60
+    Top = 0
+    Width = 800
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 2105376
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object LblTitle: TLabel
+      Left = 16
+      Height = 22
+      Top = 8
+      Width = 450
+      Caption = 'Módulo 23: TLazSerialDeviceConnector (Comunicacao Serial com Hardware Industrial)'
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'Segoe UI Semibold'
+      ParentColor = False
+    end
+    object LblSubtitle: TLabel
+      Left = 16
+      Height = 17
+      Top = 32
+      Width = 550
+      Caption = 'Comunicação com balanças, leitores e CLPs industriais via RS232 e USB Virtual COM.'
+      Font.Color = 12632256
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      ParentColor = False
+    end
+  end
+  object PnlWorkArea: TPanel
+    Left = 0
+    Height = 360
+    Top = 60
+    Width = 800
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 360
+    ClientWidth = 800
+    TabOrder = 1
+    object PnlContainer: TPanel
+      Left = 16
+      Height = 280
+      Top = 16
+      Width = 768
+      Align = alClient
+      BorderSpacing.Around = 16
+      BevelOuter = bvLowered
+      TabOrder = 0
+    end
+    object PnlActions: TPanel
+      Left = 0
+      Height = 48
+      Top = 312
+      Width = 800
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 48
+      ClientWidth = 800
+      TabOrder = 1
+      object BtnRunAction: TButton
+        Left = 16
+        Height = 32
+        Top = 8
+        Width = 240
+        Caption = 'Executar Ação do Componente'
+        OnClick = BtnRunActionClick
+        TabOrder = 0
+      end
+    end
+  end
+  object PnlLog: TPanel
+    Left = 0
+    Height = 180
+    Top = 420
+    Width = 800
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 180
+    ClientWidth = 800
+    TabOrder = 2
+    object MemoLog: TMemo
+      Left = 0
+      Height = 180
+      Top = 0
+      Width = 800
+      Align = alClient
+      Color = 1973790
+      Font.Color = 13948116
+      Font.Height = -12
+      Font.Name = 'Consolas'
+      ParentFont = False
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      TabOrder = 0
+    end
+  end
+end

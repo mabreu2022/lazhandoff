@@ -1,0 +1,15 @@
+program Demo_07_DlpDashboardCard;
+
+uses
+  Vcl.Forms,
+  FormMain in 'FormMain.pas' {FrmMain};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Demo_07_DlpDashboardCard';
+  Application.CreateForm(TFrmMain, FrmMain);
+  Application.Run;
+end.

@@ -142,6 +142,31 @@ Para experimentar imediatamente os componentes em tempo de execução sem precis
 
 ---
 
+## 📂 50 Projetos Independentes de Exemplo (Aprenda Componente por Componente)
+
+Para facilitar o estudo isolado, depuração e experimentação individual de cada recurso sem sobrecarga de um projeto monolítico, a obra conta com **50 pastas de projetos independentes** para cada ambiente (Lazarus e Delphi):
+
+* **Lazarus / LCL:** Disponíveis em [`Livro1_Lazarus_LCL/code/examples/`](Livro1_Lazarus_LCL/code/examples/) (e espelhado em [`lazarus/examples/`](lazarus/examples/)).
+* **Delphi / VCL-FMX:** Disponíveis em [`Livro2_Delphi_VCL_FMX/code/examples/`](Livro2_Delphi_VCL_FMX/code/examples/) (e espelhado em [`delphi/examples/`](delphi/examples/)).
+
+Cada subpasta (do `01` ao `50`) contém:
+1. **Projeto compilável independente:** Arquivo `.lpi` + `.lpr` (Lazarus) ou `.dproj` + `.dpr` (Delphi).
+2. **Formulário de teste dedicado:** `FormMain.pas` e `FormMain.lfm` / `FormMain.dfm` com interface funcional focada no componente em questão.
+3. **Documentação local (`README.md`):** Explicação teórica do componente, tabela de propriedades principais, eventos e instruções diretas de execução.
+
+### Exemplo de Uso Rápido:
+Para testar isoladamente o mostrador analógico (`TLazAnalogGauge`):
+```bash
+# Abrir no Lazarus ou compilar via linha de comando:
+lazbuild lazarus/examples/09_AnalogGauge/Demo_09_LazAnalogGauge.lpi
+```
+Para testar o executor assíncrono multithread (`TDlpAsyncTaskRunner` no Delphi):
+```bash
+msbuild delphi/examples/21_AsyncTaskRunner/Demo_21_DlpAsyncTaskRunner.dproj
+```
+
+---
+
 ## 📖 Compilação Automatizada dos Livros em PDF
 
 Para recompilar os dois livros em formato PDF com o tema editorial limpo (padrão de editora internacional com fundo branco e destaque de sintaxe Pascal):
